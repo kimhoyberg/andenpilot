@@ -1,6 +1,6 @@
 // Forside og navigation. Siden skifter visning via adressen:
-//   #/                  → forsiden
-//   #/forloeb/<id>      → forløbet i forloeb/<id>.json
+//   (ingen #)           → forsiden
+//   #<id>               → forløbet i forloeb/<id>.json, fx #teams-referat
 
 import { h, ikon, formaterTid } from './dom.js';
 import { erFaerdig, minutterFor, samletMinutter, lagringVirker, nulstil } from './lager.js';
@@ -33,7 +33,7 @@ function fejlside(tekst) {
     h('div', { class: 'fejl' },
       h('h1', {}, 'Ups – noget gik galt'),
       h('p', {}, tekst),
-      h('p', {}, h('a', { href: '#/' }, 'Til forsiden'))));
+      h('p', {}, h('a', { href: '#' }, 'Til forsiden'))));
 }
 
 async function visForside() {
@@ -46,7 +46,7 @@ async function visForside() {
   const raekker = liste.map((f) => {
     const klaret = erFaerdig(f.id);
     return h('li', {},
-      h('a', { class: 'forloeb-raekke' + (klaret ? ' klaret' : ''), href: `#/forloeb/${f.id}` },
+      h('a', { class: 'forloeb-raekke' + (klaret ? ' klaret' : ''), href: `#${f.id}` },
         h('span', { class: 'flueben-cirkel', 'aria-hidden': 'true' }, klaret ? ikon('flueben') : null),
         h('span', { class: 'raekke-tekst' },
           h('span', { class: 'raekke-titel' }, f.titel),
@@ -83,16 +83,24 @@ async function visForside() {
       h('p', {}, lagringVirker()
         ? 'Dit fremskridt gemmes kun i din egen browser. Ingen andre kan se det.'
         : 'Din browser tillader ikke, at siden gemmer dit fremskridt. Du kan sagtens bruge den – den husker det bare ikke til næste gang.'),
-      antalKlaret > 0
-        ? h('button', {
-          class: 'link-knap', type: 'button',
-          onclick: () => { if (confirm('Vil du starte forfra? Dit fremskridt bliver nulstillet.')) { nulstil(); visForside(); } },
-        }, 'Start forfra')
-        : null));
+      antalKlaret > 0 ? startForfra() : null));
+}
+
+// "Start forfra" med bekræftelse direkte på siden (ingen pop-op)
+function startForfra() {
+  const boks = h('div', { class: 'forfra' });
+  const spoerg = () => boks.replaceChildren(
+    h('span', {}, 'Nulstil dit fremskridt?'),
+    h('button', { class: 'link-knap', type: 'button', onclick: () => { nulstil(); visForside(); } }, 'Ja, start forfra'),
+    h('button', { class: 'link-knap', type: 'button', onclick: vis }, 'Nej'));
+  const vis = () => boks.replaceChildren(
+    h('button', { class: 'link-knap', type: 'button', onclick: spoerg }, 'Start forfra'));
+  vis();
+  return boks;
 }
 
 async function rute() {
-  const m = (location.hash || '').match(/^#\/forloeb\/([\w-]+)/);
+  const m = (location.hash || '').match(/^#(?:\/forloeb\/)?([\w-]+)$/);
   try {
     if (m) {
       const forloeb = { ...(await hentForloeb(m[1])), id: m[1] };

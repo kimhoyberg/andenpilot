@@ -40,14 +40,14 @@ export function visForloeb(rod, forloeb, { samletMinutter }) {
 
   rod.replaceChildren(
     h('header', { class: 'forloeb-top' },
-      h('a', { class: 'luk', href: '#/' }, ikon('tilbage'), 'Alle forløb'),
+      h('a', { class: 'luk', href: '#' }, ikon('tilbage'), 'Alle forløb'),
       fremskridt, fremskridtTekst),
     scene,
     h('nav', { class: 'forloeb-bund', 'aria-label': 'Trin' }, tilbage, naesteTip, naeste));
 
   function gaaVidere() {
     if (naeste.disabled) return;
-    if (nu >= trinListe.length - 1) location.hash = '#/';
+    if (nu >= trinListe.length - 1) location.hash = '';
     else vis(nu + 1);
   }
 

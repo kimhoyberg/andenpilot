@@ -30,7 +30,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #16181B;
     --flade: #1F2226;
     --flade-2: #272B30;
@@ -53,7 +53,30 @@
   }
 }
 
+:root[data-theme="dark"] {
+  --bg: #16181B;
+  --flade: #1F2226;
+  --flade-2: #272B30;
+  --blaek: #ECEDEE;
+  --daempet: #A2A8AF;
+  --linje: #33373D;
+  --accent: #7CC7B4;
+  --accent-tekst: #0F1A17;
+  --accent-blid: #1E3530;
+  --ai: #ADA3F7;
+  --ai-blid: #2A2742;
+  --godt: #8BD3A4;
+  --godt-blid: #1D3326;
+  --hint: #F0BE7A;
+  --hint-blid: #3A2D1A;
+  --moede: #111316;
+  --moede-2: #24272D;
+  --skygge: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 30px rgba(0, 0, 0, .35);
+  color-scheme: dark;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 html { -webkit-text-size-adjust: 100%; }
 
@@ -180,6 +203,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .raekke-meta { color: var(--daempet); font-size: 15px; }
 .raekke-pil { color: var(--daempet); font-size: 20px; transition: transform .2s, color .2s; }
 
+.forfra { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; }
 .forside-bund { padding-top: 40px; color: var(--daempet); font-size: 15px; display: grid; gap: 6px; justify-items: start; }
 
 .fejl { padding: 48px 0; display: grid; gap: 14px; }
