@@ -1,0 +1,81 @@
+{
+  "titel": "Skriv en svær mail hurtigere",
+  "varighed": 5,
+  "program": "Outlook",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Du lærer at få Copilot til at skrive det første udkast til en svær mail. Så bruger du tiden på at rette til i stedet for at stirre på en tom skærm."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man får Copilot til at skrive et svar i Outlook.",
+      "fil": "media/svaer-mail.mp4",
+      "beskrivelse": "Outlook: Åbn en mail, klik på Svar og derefter på Copilot-ikonet. Skriv en kort prompt, og vis udkastet, der kommer frem. Bed til sidst om at gøre det kortere. 15–20 sekunder, uden lyd."
+    },
+    {
+      "type": "byg",
+      "titel": "Byg en god prompt",
+      "tekst": "En fast kunde har fået en forkert faktura og er sur. Byg prompten, der får Copilot til at skrive svaret.",
+      "mail": {
+        "fra": "Kirsten",
+        "emne": "Forkert faktura – IGEN",
+        "tekst": [
+          "Hej. Jeg har nu for anden gang fået en faktura med et forkert beløb. Der står 4.800 kr., men vi aftalte 3.600 kr.",
+          "Det er simpelthen ikke godt nok. Jeg forventer, at det bliver rettet med det samme.",
+          "Kirsten"
+        ]
+      },
+      "brikker": [
+        { "type": "Hvad", "tekst": "Skriv et svar til Kirsten, hvor du beklager fejlen og fortæller, at hun får en rettet faktura på 3.600 kr. i morgen." },
+        { "type": "Hvem", "tekst": "Hun er en fast kunde og er med rette irriteret." },
+        { "type": "Tone", "tekst": "Brug en rolig og venlig tone, og undskyld kun én gang." },
+        { "type": "Format", "tekst": "Hold svaret under seks linjer." }
+      ],
+      "svar": "Kære Kirsten\n\nTak for din mail, og undskyld fejlen. Du har helt ret: Det aftalte beløb er 3.600 kr.\n\nDu får en rettet faktura i morgen, og du kan se bort fra den forkerte.\n\nVenlig hilsen",
+      "faerdig": "Flot! Hvad, hvem, tone og format giver et svar, du næsten kan sende med det samme."
+    },
+    {
+      "type": "skyder",
+      "titel": "Gør dit eget udkast bedre",
+      "tekst": "Har du allerede skrevet noget i en fart? Copilot kan rette det til.",
+      "prompt": "Gør min mail venligere og mere professionel, og hold den kort.",
+      "foer": "hej kirsten\nja det er rigtigt at fakturaen er forkert, det er systemet der laver fejl og det er ikke første gang det sker for os heller. den nye faktura kommer nok i morgen eller fredag. sorry for det\nmvh",
+      "efter": "Kære Kirsten\n\nDu har ret – fakturaen er forkert, og det beklager jeg. Du får en rettet faktura på 3.600 kr. senest fredag.\n\nTak for din tålmodighed.\n\nVenlig hilsen",
+      "faerdig": "Sådan! Træk frem og tilbage, og se forskellen."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Hvad skal du altid gøre, før du sender en mail, som Copilot har skrevet?",
+      "svar": [
+        "Ingenting – Copilot har styr på det",
+        "Læse den igennem og rette til, så den er rigtig og lyder som dig",
+        "Sende den til din chef først"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Copilot skriver et godt udkast, men det er dig, der sender mailen. Tjek fakta som beløb og datoer, og ret ord, du ikke selv ville bruge."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Prøv det på din næste svære mail",
+      "tekst": "Find en mail, du har skubbet foran dig.",
+      "trin": [
+        "Åbn mailen i Outlook, og klik på **Svar**.",
+        "Klik på **Copilot**-ikonet i værktøjslinjen, og vælg at skrive et udkast.",
+        "Sæt prompten ind, og ret teksten i [klammer], så den passer til din mail.",
+        "Læs udkastet igennem, og ret det til, så det lyder som dig."
+      ],
+      "prompt": "Skriv et svar, hvor jeg [beklager / siger nej / forklarer …]. Modtageren er [hvem, og hvordan har de det]. Brug en rolig og venlig tone. Hold svaret under seks linjer."
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "normalt": 20,
+      "medCopilot": 5,
+      "gangePrMaaned": 6,
+      "hvad": "at skrive en svær mail"
+    }
+  ]
+}

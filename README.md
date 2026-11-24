@@ -70,7 +70,7 @@ Den faste skabelon er:
 |---|-------------|-------------------|
 | 1 | `intro`     | Kort intro – én sætning |
 | 2 | `video`     | Se det – lydløs skærmoptagelse i loop |
-| 3 | `simulator`, `valg` (snart også `byg` og `skyder`) | Prøv det – en eller flere øvelser |
+| 3 | `simulator`, `valg`, `byg`, `skyder` | Prøv det – en eller flere øvelser |
 | 4 | `quiz`      | Tjek dig selv – ét spørgsmål |
 | 5 | `goer-det`  | Gør det nu – opgave + kopiér prompten |
 | 6 | `tid`       | Tid sparet |
@@ -151,6 +151,38 @@ Indhold i `vindue`:
 }
 ```
 
+### `byg` – byg prompten
+Brikkerne trækkes op i prompten (eller man trykker på dem). Skriv dem i den
+rækkefølge, de skal stå i den færdige prompt – på skærmen bliver de blandet.
+`type` er `Hvem`, `Hvad`, `Format` eller `Tone` (styrer farven).
+```json
+{
+  "type": "byg",
+  "mail": { "fra": "Kirsten", "emne": "Forkert faktura", "tekst": ["Afsnit 1", "Afsnit 2"] },
+  "brikker": [
+    { "type": "Hvad", "tekst": "Skriv et svar, hvor du …" },
+    { "type": "Hvem", "tekst": "Modtageren er …" },
+    { "type": "Tone", "tekst": "Brug en venlig tone." },
+    { "type": "Format", "tekst": "Hold svaret under seks linjer." }
+  ],
+  "svar": "Copilots svar, når prompten sendes.",
+  "faerdig": "Flot! …"
+}
+```
+`mail` er valgfri og vises over prompten som det, man skal svare på.
+
+### `skyder` – før/efter
+```json
+{
+  "type": "skyder",
+  "prompt": "Gør min mail venligere og mere professionel.",
+  "foer": "den rodede tekst",
+  "efter": "Copilots forbedrede version",
+  "faerdig": "Sådan! …"
+}
+```
+Brug en tom linje (`\n\n`) for at lave nyt afsnit. `prompt` er valgfri.
+
 ### `quiz`
 ```json
 {
@@ -181,6 +213,11 @@ Besparelsen (her (20 − 5) × 4 = 60 min) lægges til brugerens samlede tal på
 ---
 
 ## Sådan tilføjer du en skærmoptagelse
+
+Øvelserne på siden er forenklede og neutrale. Optagelsen er det eneste sted,
+man ser **det rigtige program**, så kollegerne kan genkende knapperne, når de
+selv skal gøre det. Vis derfor præcis den vej, øvelsen lærer dem – og intet andet.
+
 
 1. Optag kort og lydløst – helst 10–20 sekunder, kun det vigtigste.
    (Windows: **Klippeværktøj** → **Optag**. Mac: **Cmd + Shift + 5**.)

@@ -1,0 +1,102 @@
+{
+  "titel": "Få overblik over et langt dokument",
+  "varighed": 5,
+  "program": "Word",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Du lærer at få Copilot til at opsummere et langt dokument, så du hurtigt ved, hvad der står – og hvad det betyder for dig."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man får en opsummering af et dokument i Word.",
+      "fil": "media/langt-dokument.mp4",
+      "beskrivelse": "Word: Åbn et langt dokument, klik på Copilot på fanen Hjem, og bed om en opsummering. Vis svaret, og klik på en af henvisningerne, så Word hopper til det rigtige sted. 15–20 sekunder, uden lyd."
+    },
+    {
+      "type": "simulator",
+      "titel": "Prøv selv",
+      "tekst": "Du har fået nye retningslinjer for hjemmearbejde. Bed Copilot om overblikket.",
+      "app": "word",
+      "opgave": "Find Copilot-knappen i Word, og klik på den.",
+      "vindue": {
+        "titel": "Retningslinjer for hjemmearbejde.docx",
+        "overskrift": "Retningslinjer for hjemmearbejde",
+        "afsnit": [
+          "Gældende fra 1. marts. Erstatter de tidligere retningslinjer fra 2021.",
+          "## 1. Formål",
+          "Retningslinjerne har til formål at tilvejebringe klare og ensartede rammer for hjemmearbejde, således at hensynet til den enkelte medarbejders behov for fleksibilitet afbalanceres med hensynet til samarbejde, opgaveløsning og et godt arbejdsmiljø på tværs af organisationens afdelinger.",
+          "## 2. Hvem kan arbejde hjemme",
+          "Alle fastansatte medarbejdere kan som udgangspunkt arbejde hjemme, når opgaverne tillader det. Medarbejdere i prøvetid aftaler omfanget med deres nærmeste leder. Det er lederen, der i sidste ende vurderer, om en opgave egner sig til hjemmearbejde.",
+          "## 3. Omfang",
+          "Der kan arbejdes hjemme op til to dage om ugen. Tirsdag er fast mødedag, hvor alle som hovedregel møder ind. Hjemmearbejdsdage aftales i teamet og noteres i den fælles kalender senest fredag i ugen før.",
+          "## 4. Udstyr",
+          "Medarbejderen får udleveret bærbar computer, headset og skærm. Øvrigt udstyr, herunder kontorstol og hæve-sænkebord, kan efter ansøgning lånes, hvis der arbejdes hjemme mindst én dag om ugen. Udstyret skal leveres tilbage ved fratrædelse.",
+          "## 5. Arbejdstid og kontakt",
+          "Medarbejderen skal kunne kontaktes i kernetiden kl. 9–15 via Teams og telefon. Status i Teams skal holdes opdateret.",
+          "## 6. Informationssikkerhed",
+          "Fortrolige papirer må ikke tages med hjem. Skærmen skal låses, når man forlader computeren, også derhjemme. Der må kun arbejdes via virksomhedens VPN eller godkendte cloudtjenester.",
+          "## 7. Sådan kommer du i gang",
+          "Udfyld formularen »Aftale om hjemmearbejde« på intranettet, og aftal derefter dagene med din leder. Ansøgning om lån af udstyr skal sendes senest 1. februar for at være klar til 1. marts."
+        ]
+      },
+      "prompts": [
+        {
+          "tekst": "Opsummer dokumentet i fem punkter",
+          "svar": "**De vigtigste punkter**\n- Retningslinjerne gælder fra 1. marts.\n- Du kan arbejde hjemme op til to dage om ugen. Tirsdag er fast mødedag.\n- Hjemmedage aftales i teamet og skrives i kalenderen senest fredag ugen før.\n- Du skal kunne kontaktes kl. 9–15 via Teams og telefon.\n- Fortrolige papirer må ikke tages med hjem."
+        },
+        {
+          "tekst": "Hvad skal jeg gøre, og hvornår?",
+          "svar": "Du skal gøre tre ting:\n- **Nu:** Udfyld »Aftale om hjemmearbejde« på intranettet, og aftal dagene med din leder.\n- **Senest 1. februar:** Søg om lån af stol eller hæve-sænkebord, hvis du har brug for det.\n- **Hver uge:** Skriv dine hjemmedage i den fælles kalender senest fredag."
+        },
+        {
+          "tekst": "Må jeg arbejde hjemme om tirsdagen?",
+          "svar": "Som hovedregel nej. Tirsdag er fast mødedag, hvor alle møder ind (afsnit 3). Har du brug for en undtagelse, så aftal det med din leder."
+        }
+      ],
+      "faerdig": "Flot! Sådan får du overblikket. Prøv gerne de andre spørgsmål også."
+    },
+    {
+      "type": "skyder",
+      "titel": "Fra tungt til enkelt sprog",
+      "tekst": "Copilot kan også omskrive et svært afsnit til almindeligt dansk.",
+      "prompt": "Forklar afsnit 1 i et enkelt sprog.",
+      "foer": "Retningslinjerne har til formål at tilvejebringe klare og ensartede rammer for hjemmearbejde, således at hensynet til den enkelte medarbejders behov for fleksibilitet afbalanceres med hensynet til samarbejde, opgaveløsning og et godt arbejdsmiljø på tværs af organisationens afdelinger.",
+      "efter": "Reglerne gør det tydeligt, hvornår og hvordan du kan arbejde hjemme.\n\nDu får frihed til at arbejde hjemme, men vi skal stadig kunne arbejde godt sammen og have det godt på arbejdet.",
+      "faerdig": "Sådan! Samme indhold – bare til at forstå."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Copilot skriver, at fristen for at låne udstyr er 1. februar. Hvordan kan du være sikker?",
+      "svar": [
+        "Copilot tager aldrig fejl",
+        "Klik på henvisningen i svaret, og tjek det i dokumentet",
+        "Spørg Copilot en gang til"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Copilot kan tage fejl. Svaret viser små henvisninger til de steder i dokumentet, det bygger på. Ét klik, så kan du selv se det."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Prøv det på et rigtigt dokument",
+      "tekst": "Find et langt dokument, du skal læse – fx en rapport, et referat eller nye retningslinjer.",
+      "trin": [
+        "Åbn dokumentet i Word.",
+        "Klik på **Copilot** på fanen **Hjem**.",
+        "Sæt prompten ind, og læs opsummeringen.",
+        "Stil gerne et spørgsmål bagefter, fx »Hvad betyder det for mig?«"
+      ],
+      "prompt": "Opsummer dokumentet i fem punkter. Fortæl mig derefter, hvad jeg skal gøre, og hvornår."
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "normalt": 30,
+      "medCopilot": 10,
+      "gangePrMaaned": 3,
+      "hvad": "at læse et langt dokument"
+    }
+  ]
+}

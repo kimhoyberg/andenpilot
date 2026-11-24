@@ -8,6 +8,8 @@ import { quiz } from './komponenter/quiz.js';
 import { goerDet } from './komponenter/goer-det.js';
 import { video } from './komponenter/video.js';
 import { tid } from './komponenter/tid.js';
+import { byg } from './komponenter/byg.js';
+import { skyder } from './komponenter/skyder.js';
 
 const intro = (trin, ctx) =>
   h('p', { class: 'intro-meta' }, ikon('ur'), `ca. ${ctx.forloeb.varighed || 5} min`,
@@ -19,6 +21,8 @@ export const KOMPONENTER = {
   video: { vis: video, etiket: 'Se det', klarFraStart: true },
   simulator: { vis: simulator, etiket: 'Prøv det' },
   valg: { vis: valg, etiket: 'Prøv det' },
+  byg: { vis: byg, etiket: 'Prøv det' },
+  skyder: { vis: skyder, etiket: 'Prøv det' },
   quiz: { vis: quiz, etiket: 'Tjek dig selv' },
   'goer-det': { vis: goerDet, etiket: 'Gør det nu', klarFraStart: true },
   tid: { vis: tid, etiket: 'Tid sparet', klarFraStart: true },
