@@ -28,7 +28,6 @@ export function infoSide(d, forloeb) {
         r.eksempel ? h('p', { class: 'info-eksempel' }, `“${r.eksempel}”`) : null,
         f ? h('a', { class: 'info-proev', href: `#${f.id}` },
           h('span', {}, 'Prøv det: ', h('strong', {}, f.titel)),
-          h('span', { class: 'info-proev-tid' }, `ca. ${f.varighed || 5} min`),
           ikon('pil')) : null));
   });
 
