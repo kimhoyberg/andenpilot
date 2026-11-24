@@ -1,0 +1,43 @@
+{
+  "fane": "Hvad får jeg?",
+  "titel": "Copilot Chat kender internettet.",
+  "titelFremhaevet": "Copilot med licens kender også dit arbejde.",
+  "tekst": "Hvad får du som medarbejder, når du har en Copilot-licens i stedet for den almindelige Copilot Chat?",
+  "uden": { "navn": "Copilot Chat", "under": "Følger med Microsoft 365" },
+  "med": { "navn": "Copilot med licens", "under": "Premium – ekstra licens" },
+  "raekker": [
+    {
+      "titel": "Den kan bruge dit arbejde",
+      "uden": "Har ikke samme adgang til din arbejdskontekst. Du skal oftere selv give den det materiale, den skal arbejde med.",
+      "udenMaerke": "Du leder, den svarer",
+      "med": "Den kan finde og bruge oplysninger fra dine mails, møder, chats og filer, som du allerede har adgang til.",
+      "eksempel": "Hvad står der i vores interne vejledning om aktindsigt?",
+      "forloeb": "svaer-mail"
+    },
+    {
+      "titel": "Mere Copilot i Word, Excel og PowerPoint",
+      "uden": "Copilot kan være tilgængelig i programmerne, men har ikke samme adgang til din øvrige arbejdskontekst. Du skal derfor oftere selv give den det materiale, den skal arbejde med.",
+      "udenMaerke": "Du giver den konteksten",
+      "med": "Copilot arbejder direkte med det dokument, du har åbent. Den kan fx hjælpe med at skrive, rette, analysere og opsummere.",
+      "eksempel": "Gør afsnit 2 kortere og venligere.",
+      "forloeb": "langt-dokument"
+    },
+    {
+      "titel": "Den hjælper med møderne",
+      "uden": "Ingen hjælp med Teams-møder, medmindre du selv skaffer og indsætter en udskrift.",
+      "udenMaerke": "Du tager noter",
+      "med": "Den kan hjælpe under og efter Teams-møder med fx opsummering, beslutninger og opfølgningspunkter.",
+      "eksempel": "Hvad blev besluttet, og hvad skal jeg gøre?",
+      "forloeb": "teams-referat"
+    }
+  ],
+  "sikkerhed": {
+    "titel": "Sikkerhed",
+    "tekst": "Copilot er omfattet af Microsofts databeskyttelse for virksomheder (Enterprise Data Protection). Copilot kan kun bruge arbejdsdata, som du i forvejen har adgang til. Data bruges ikke til træning af Microsofts AI-modeller."
+  },
+  "forbehold": {
+    "etiket": "Forbeholdet",
+    "titel": "Copilot er ikke klogere end jeres filstruktur.",
+    "tekst": "Copilot kan som udgangspunkt kun finde det, du allerede har adgang til. Men er adgangen til SharePoint, Teams eller OneDrive for bred, gør Copilot også de oplysninger lettere at finde."
+  }
+}

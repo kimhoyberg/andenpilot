@@ -100,13 +100,38 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 
 /* ---------- Forside ---------- */
 
-.forside-top { padding: 28px 0 32px; }
+.forside-top { padding: 40px 0 32px; }
 
 .maerkevare {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 15px; font-weight: 600; color: var(--ai);
-  margin-bottom: 28px;
 }
+
+/* ---------- Faner ---------- */
+
+/* Siderne med faner er bredere på store skærme, så fanerne står samme sted.
+   Forsidens indhold holder sig til en rolig læsebredde. */
+main:has(.faner-top) { max-width: 1040px; }
+.forside-top, .status, .forloeb-liste, .forside-info, .forside-bund { max-width: 680px; }
+
+.faner-top {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 14px 24px; padding-top: 4px;
+}
+.faner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding: 4px; border-radius: 99px; background: var(--flade-2);
+  flex: 1 1 100%; max-width: 100%;
+}
+@media (min-width: 560px) { .faner { flex: 0 1 auto; } }
+.fane {
+  display: grid; place-items: center;
+  min-height: 42px; padding: 0 18px; border-radius: 99px;
+  color: var(--daempet); text-decoration: none; font-weight: 600; font-size: 15px;
+  white-space: nowrap; transition: background-color .2s, color .2s;
+}
+.fane:hover { color: var(--blaek); }
+.fane.aktiv { background: var(--flade); color: var(--blaek); box-shadow: 0 1px 3px rgba(20, 20, 20, .1); }
 
 .forside-titel {
   font-size: clamp(32px, 8vw, 46px);
@@ -160,6 +185,79 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .raekke-pil { color: var(--daempet); font-size: 20px; transition: transform .2s, color .2s; }
 
 .forfra { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; }
+.forside-info {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-top: 28px; padding: 18px 20px; border-radius: var(--r);
+  background: var(--ai-blid); color: var(--blaek); text-decoration: none; font-weight: 600;
+}
+.forside-info .raekke-pil { color: var(--ai); }
+.forside-info:hover .raekke-pil { transform: translateX(3px); }
+
+/* ---------- Info-fanen ---------- */
+
+.info-top { padding: 40px 0 36px; display: grid; gap: 18px; }
+.info-overskrift {
+  font-size: clamp(30px, 7vw, 46px); line-height: 1.12; letter-spacing: -0.02em;
+  font-weight: 700; text-wrap: balance;
+}
+.info-fremhaevet { color: var(--ai); }
+
+.info-kolonner { display: none; }
+.info-kolonne-navn {
+  display: block; font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--daempet);
+}
+.info-kolonne-navn--med { color: var(--ai); }
+.info-under { display: block; font-size: 17px; font-weight: 600; color: var(--blaek); margin-top: 2px; }
+
+.info-liste { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--blaek); }
+.info-raekke {
+  display: grid; gap: 18px;
+  padding: 28px 0; border-bottom: 1px solid var(--linje);
+}
+.info-emne { display: grid; gap: 4px; align-content: start; }
+.info-nr { font-size: 15px; font-weight: 700; color: var(--ai); font-variant-numeric: tabular-nums; }
+.info-titel { font-size: 22px; line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; }
+.info-uden, .info-med { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.info-uden { color: var(--daempet); font-size: 16px; }
+.info-med { font-size: 17px; }
+.info-maerke { font-size: 13px; font-weight: 600; color: var(--daempet); opacity: .85; }
+.info-eksempel { font-style: italic; color: var(--daempet); }
+.info-proev {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 6px; padding: 12px 16px; border-radius: 12px;
+  background: var(--accent-blid); color: var(--blaek); text-decoration: none; font-size: 15px;
+}
+.info-proev strong { color: var(--accent); }
+.info-proev-tid { color: var(--daempet); font-size: 14px; margin-left: auto; }
+.info-proev .ikon { color: var(--accent); font-size: 18px; transition: transform .2s; }
+.info-proev:hover .ikon { transform: translateX(3px); }
+
+.info-sikkerhed { display: grid; gap: 8px; padding: 28px 0 8px; }
+.info-sikkerhed h2 { font-size: 19px; }
+.info-sikkerhed p { color: var(--daempet); max-width: 60ch; }
+
+.info-forbehold {
+  margin-top: 32px; padding: 28px 24px; border-radius: var(--r);
+  background: var(--hint-blid); display: grid; gap: 10px;
+}
+.info-forbehold .etiket { color: var(--hint); }
+.info-forbehold h2 { font-size: clamp(22px, 5vw, 28px); line-height: 1.2; letter-spacing: -0.01em; text-wrap: balance; }
+.info-forbehold p:last-child { max-width: 60ch; }
+
+.info-videre { padding-top: 36px; }
+.info-videre .knap { text-decoration: none; }
+
+@media (min-width: 760px) {
+  .info-kolonner {
+    display: grid; grid-template-columns: 220px 1fr 1fr; column-gap: 32px;
+    padding-bottom: 14px;
+  }
+  .info-raekke { grid-template-columns: 220px 1fr 1fr; column-gap: 32px; padding: 36px 0; }
+  .kun-smal { display: none; }
+  .info-sikkerhed { grid-template-columns: 220px 1fr; column-gap: 32px; }
+}
+
 .forside-bund { padding-top: 40px; color: var(--daempet); font-size: 15px; display: grid; gap: 6px; justify-items: start; }
 
 .fejl { padding: 48px 0; display: grid; gap: 14px; }

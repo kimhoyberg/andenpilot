@@ -35,8 +35,30 @@ js/                     koden (skal du normalt ikke røre)
 js/komponenter/         de genbrugelige øvelser
 forloeb/oversigt.json   hvilke forløb der vises på forsiden, og i hvilken rækkefølge
 forloeb/<navn>.json     ét forløb pr. fil
+indhold/premium.json    teksten på fanen "Hvad får jeg?"
 media/                  dine skærmoptagelser
 ```
+
+## De to faner
+
+Øverst på siden kan man skifte mellem **Lær Copilot** (forløbene) og
+**Hvad får jeg?** (forskellen på Copilot Chat og Copilot med licens).
+Inde i et forløb er fanerne skjult, så man kan koncentrere sig om øvelsen.
+Man kan linke direkte til info-fanen med `…/#premium`.
+
+### Ret teksten på "Hvad får jeg?"
+
+Al tekst ligger i `indhold/premium.json`:
+
+- `fane` – navnet på fanen
+- `titel` og `titelFremhaevet` – overskriften (den anden del får farve)
+- `uden` og `med` – navnene på de to kolonner
+- `raekker` – én pr. punkt. `forloeb` er filnavnet på det forløb, knappen
+  "Prøv det" skal føre til (fx `"teams-referat"`). Udelad feltet, hvis der
+  ikke skal være en knap.
+- `sikkerhed` og `forbehold` – de to afsnit nederst
+
+> Et forløb må ikke hedde `premium`, da adressen er optaget af info-fanen.
 
 ---
 

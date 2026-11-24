@@ -1,10 +1,14 @@
 // Forside og navigation. Siden skifter visning via adressen:
-//   (ingen #)           → forsiden
+//   (ingen #)           → fanen "Lær Copilot" (forsiden)
+//   #premium            → fanen "Hvad får jeg?" (indhold/premium.json)
 //   #<id>               → forløbet i forloeb/<id>.json, fx #teams-referat
 
 import { h, ikon, formaterTid } from './dom.js';
 import { erFaerdig, minutterFor, samletMinutter, lagringVirker, nulstil } from './lager.js';
 import { visForloeb } from './forloeb.js';
+import { infoSide } from './info.js';
+
+const INFO_ID = 'premium';
 
 const rod = document.getElementById('app');
 const cache = new Map();
@@ -36,9 +40,34 @@ function fejlside(tekst) {
       h('p', {}, h('a', { href: '#' }, 'Til forsiden'))));
 }
 
+// De to faner øverst på forsiden og info-siden
+function faner(aktiv, infoNavn) {
+  const fane = (navn, href, id) => h('a', {
+    class: 'fane' + (aktiv === id ? ' aktiv' : ''), href,
+    'aria-current': aktiv === id ? 'page' : null,
+  }, navn);
+  return h('nav', { class: 'faner-top', 'aria-label': 'Sider' },
+    h('p', { class: 'maerkevare' }, ikon('gnist'), 'Copilot på 5 minutter'),
+    h('div', { class: 'faner' },
+      fane('Lær Copilot', '#', 'laer'),
+      fane(infoNavn || 'Hvad får jeg?', `#${INFO_ID}`, 'info')));
+}
+
+async function hentInfo() {
+  try { return await hentJson(`indhold/${INFO_ID}.json`); } catch { return null; }
+}
+
+async function visInfo() {
+  const [info, liste] = await Promise.all([hentJson(`indhold/${INFO_ID}.json`), alleForloeb()]);
+  document.title = `${info.fane || 'Hvad får jeg?'} · Copilot på 5 minutter`;
+  rod.replaceChildren(
+    faner('info', info.fane),
+    ...infoSide(info, new Map(liste.map((f) => [f.id, f]))));
+}
+
 async function visForside() {
   document.title = 'Copilot på 5 minutter';
-  const liste = await alleForloeb();
+  const [liste, info] = await Promise.all([alleForloeb(), hentInfo()]);
   const ids = liste.map((f) => f.id);
   const antalKlaret = ids.filter(erFaerdig).length;
   const minutter = samletMinutter(ids);
@@ -61,8 +90,8 @@ async function visForside() {
   const pct = ids.length ? Math.round((antalKlaret / ids.length) * 100) : 0;
 
   rod.replaceChildren(
+    faner('laer', info?.fane),
     h('header', { class: 'forside-top' },
-      h('p', { class: 'maerkevare' }, ikon('gnist'), 'Copilot på 5 minutter'),
       h('h1', { class: 'forside-titel' }, 'Lær Copilot på 5 minutter ad gangen.'),
       h('p', { class: 'forside-tekst' },
         'Vælg et forløb og prøv det selv i en øvebane, hvor intet kan gå galt.')),
@@ -78,6 +107,10 @@ async function visForside() {
           : 'Gennemfør et forløb, og se hvor meget tid du kan spare.')),
 
     h('ul', { class: 'forloeb-liste' }, raekker),
+
+    info ? h('a', { class: 'forside-info', href: `#${INFO_ID}` },
+      h('span', {}, 'Hvad er forskellen på Copilot Chat og Copilot med licens?'),
+      ikon('pil', 'ikon raekke-pil')) : null,
 
     h('footer', { class: 'forside-bund' },
       h('p', {}, lagringVirker()
@@ -102,7 +135,10 @@ function startForfra() {
 async function rute() {
   const m = (location.hash || '').match(/^#(?:\/forloeb\/)?([\w-]+)$/);
   try {
-    if (m) {
+    if (m && m[1] === INFO_ID) {
+      await visInfo();
+      window.scrollTo({ top: 0 });
+    } else if (m) {
       const forloeb = { ...(await hentForloeb(m[1])), id: m[1] };
       let ids = [];
       try { ids = (await hentOversigt()).forloeb || []; } catch { ids = [m[1]]; }
