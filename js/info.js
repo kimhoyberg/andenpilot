@@ -35,8 +35,8 @@ export function infoSide(d, forloeb) {
   return [
     h('header', { class: 'info-top' },
       h('h1', { class: 'info-overskrift' },
-        d.titel, ' ', h('span', { class: 'info-fremhaevet' }, d.titelFremhaevet)),
-      d.tekst ? h('p', { class: 'forside-tekst' }, formateret(d.tekst)) : null),
+        d.titel, h('br'), h('span', { class: 'info-fremhaevet' }, d.titelFremhaevet)),
+      d.tekst ? h('p', { class: 'info-tekst' }, formateret(d.tekst)) : null),
 
     h('div', { class: 'info-kolonner', 'aria-hidden': 'true' },
       h('span'),

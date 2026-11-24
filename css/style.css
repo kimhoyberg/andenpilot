@@ -201,6 +201,7 @@ main:has(.faner-top) { max-width: 1040px; }
   font-weight: 700; text-wrap: balance;
 }
 .info-fremhaevet { color: var(--ai); }
+.info-tekst { color: var(--daempet); font-size: 18px; }
 
 .info-kolonner { display: none; }
 .info-kolonne-navn {
