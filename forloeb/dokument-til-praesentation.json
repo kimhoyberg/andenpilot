@@ -1,0 +1,90 @@
+{
+  "titel": "Lav slides ud fra et dokument",
+  "varighed": 5,
+  "program": "PowerPoint",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Du lærer at få Copilot til at lave et første udkast til en præsentation ud fra et Word-dokument. Så starter du aldrig fra en tom slide."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man laver en præsentation ud fra en fil i PowerPoint.",
+      "fil": "media/dokument-til-praesentation.mp4",
+      "beskrivelse": "PowerPoint: Lav en ny præsentation, klik på Copilot, og vælg at oprette en præsentation ud fra en fil. Vælg et Word-dokument, og vis de slides, der bliver lavet. 15–20 sekunder, uden lyd."
+    },
+    {
+      "type": "simulator",
+      "titel": "Prøv selv",
+      "tekst": "Du skal fremlægge de nye regler for hjemmearbejde på personalemødet. Lav slides ud fra dokumentet.",
+      "app": "powerpoint",
+      "opgave": "Find Copilot-knappen i PowerPoint, og klik på den.",
+      "vindue": {
+        "titel": "Præsentation1.pptx"
+      },
+      "prompts": [
+        {
+          "tekst": "Lav en præsentation ud fra Retningslinjer for hjemmearbejde.docx",
+          "svar": "Jeg har lavet 4 slides ud fra dokumentet. Du kan rette tekst og design bagefter.",
+          "slides": [
+            { "titel": "Nye regler for hjemmearbejde", "punkter": ["Gælder fra 1. marts"] },
+            { "titel": "Hvor meget?", "punkter": ["Op til 2 dage om ugen", "Tirsdag er fast mødedag"] },
+            { "titel": "Det skal du huske", "punkter": ["Kan kontaktes kl. 9–15", "Ingen fortrolige papirer derhjemme"] },
+            { "titel": "Sådan kommer du i gang", "punkter": ["Udfyld aftalen på intranettet", "Søg om udstyr senest 1. februar"] }
+          ]
+        },
+        {
+          "tekst": "Lav 3 slides med de vigtigste regler",
+          "svar": "Her er 3 slides med de vigtigste regler.",
+          "slides": [
+            { "titel": "Op til 2 hjemmedage om ugen", "punkter": ["Tirsdag er fast mødedag", "Aftal dagene i teamet"] },
+            { "titel": "Du skal kunne kontaktes", "punkter": ["Kl. 9–15 via Teams og telefon"] },
+            { "titel": "Pas på data", "punkter": ["Ingen fortrolige papirer derhjemme", "Lås skærmen"] }
+          ]
+        }
+      ],
+      "faerdig": "Flot! Fire slides på få sekunder. Prøv gerne det andet forslag også."
+    },
+    {
+      "type": "skyder",
+      "titel": "Fra tekst til slide",
+      "tekst": "Copilot kan gøre et langt afsnit til korte punkter, der passer på en slide.",
+      "prompt": "Gør afsnittet til tre korte punkter til en slide.",
+      "foer": "Der kan arbejdes hjemme op til to dage om ugen. Tirsdag er fast mødedag, hvor alle som hovedregel møder ind. Hjemmearbejdsdage aftales i teamet og noteres i den fælles kalender senest fredag i ugen før.",
+      "efter": "**Hjemmearbejde**\n• Op til 2 dage om ugen\n• Tirsdag er fast mødedag\n• Skriv dine dage i kalenderen senest fredag",
+      "faerdig": "Sådan! Det samme indhold – men til at læse på en skærm."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Copilot har lavet dine slides. Hvad gør du så?",
+      "svar": [
+        "Præsenterer dem, som de er",
+        "Gennemgår dem, retter tekst og billeder og tilføjer mit eget",
+        "Sletter dem og starter forfra"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Copilot giver dig et godt første udkast. Men du ved bedst, hvad dit publikum skal have med."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Prøv det med dit eget dokument",
+      "tekst": "Find et dokument, du skal fortælle andre om.",
+      "trin": [
+        "Sørg for, at dokumentet er gemt i OneDrive eller SharePoint.",
+        "Åbn PowerPoint, og lav en ny præsentation.",
+        "Klik på **Copilot**, og sæt prompten ind. Skriv **/** og vælg dit dokument i stedet for [dokument]."
+      ],
+      "prompt": "Lav en præsentation ud fra [dokument]. Brug højst 5 slides og korte punkter."
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "normalt": 60,
+      "medCopilot": 20,
+      "gangePrMaaned": 1,
+      "hvad": "at lave en præsentation"
+    }
+  ]
+}

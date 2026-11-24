@@ -92,7 +92,7 @@ Den faste skabelon er:
 |---|-------------|-------------------|
 | 1 | `intro`     | Kort intro – én sætning |
 | 2 | `video`     | Se det – lydløs skærmoptagelse i loop |
-| 3 | `simulator`, `valg`, `byg`, `skyder` | Prøv det – en eller flere øvelser |
+| 3 | `simulator`, `valg`, `byg`, `skyder`, `fejl` | Prøv det – en eller flere øvelser |
 | 4 | `quiz`      | Tjek dig selv – ét spørgsmål |
 | 5 | `goer-det`  | Gør det nu – opgave + kopiér prompten |
 | 6 | `tid`       | Tid sparet |
@@ -139,7 +139,8 @@ Gem, og genindlæs siden. Færdig.
 ```
 
 ### `simulator` – klik-simulator
-`app` kan være `"teams"`, `"outlook"` eller `"word"`.
+`app` kan være `"teams"`, `"outlook"`, `"word"`, `"chat"` (Copilot Chat på
+startsiden i Microsoft 365), `"powerpoint"` eller `"excel"`.
 ```json
 {
   "type": "simulator",
@@ -152,6 +153,11 @@ Gem, og genindlæs siden. Færdig.
   "faerdig": "Flot! …"
 }
 ```
+Hvert forslag i `prompts` kan også have `kilder` (liste af filnavne/mails, der
+vises som henvisninger under svaret) og `slides` (liste af
+`{ "titel", "punkter": [] }`, der vises i præsentationen, når svaret er skrevet).
+`"arbejde": true` viser, at **Arbejde** er valgt øverst i Copilot.
+
 Valgfrit: `hint` (tekst ved første forkerte klik), `opgave2` (når panelet er åbnet),
 `hilsen` (Copilots første linje), `fritekstSvar` (svaret, hvis brugeren skriver selv –
 ellers bruges det første prompt-svar).
@@ -159,8 +165,12 @@ ellers bruges det første prompt-svar).
 Indhold i `vindue`:
 
 - **teams:** `titel`, `deltagere` (liste af fornavne), `udskrift` (liste af `{ "navn", "tid", "tekst" }`)
-- **outlook:** `titel`, `fra`, `tid`, `emne`, `tekst` (liste af afsnit), evt. `indbakke` (liste af `{ "fra", "emne" }`)
+- **outlook:** `titel`, `fra`, `tid`, `emne`, `tekst` (liste af afsnit), evt. `indbakke` (liste af `{ "fra", "emne" }`).
+  En hel mailtråd: brug `traad` (liste af `{ "fra", "tid", "tekst" }`) i stedet for `fra`/`tid`/`tekst`.
 - **word:** `titel` (filnavn), `overskrift`, `afsnit` (liste; et afsnit der starter med `## ` bliver en mellemrubrik)
+- **chat:** `titel`, `hilsen` (fx "Godmorgen"), `kalender` (liste af `{ "tid", "titel" }`), `filer` (liste af filnavne)
+- **powerpoint:** `titel` (filnavn), evt. `slides` – ellers vises en tom slide
+- **excel:** `titel` (filnavn), `tabel`: `{ "kolonner": [...], "raekker": [[...], [...]] }`
 
 ### `valg` – vælg den bedste prompt
 ```json
@@ -205,6 +215,22 @@ rækkefølge, de skal stå i den færdige prompt – på skærmen bliver de blan
 ```
 Brug en tom linje (`\n\n`) for at lave nyt afsnit. `prompt` er valgfri.
 
+### `fejl` – find fejlen
+Copilots svar vises som sætninger. Brugeren sammenligner med kilden og trykker
+på dem, der er forkerte.
+```json
+{
+  "type": "fejl",
+  "kilde": { "titel": "Mail fra Mette", "tekst": ["Afsnit 1", "Afsnit 2"] },
+  "prompt": "Opsummer mailen",
+  "saetninger": [
+    { "tekst": "En sætning, der passer." },
+    { "tekst": "En sætning med en fejl.", "forkert": true, "forklaring": "I mailen står der …" }
+  ],
+  "faerdig": "Godt fanget!"
+}
+```
+
 ### `quiz`
 ```json
 {
@@ -231,6 +257,8 @@ Brug en tom linje (`\n\n`) for at lave nyt afsnit. `prompt` er valgfri.
 { "type": "tid", "normalt": 20, "medCopilot": 5, "gangePrMaaned": 4 }
 ```
 Besparelsen (her (20 − 5) × 4 = 60 min) lægges til brugerens samlede tal på forsiden.
+Valgfrit: `foerTekst` (i stedet for "Det tager normalt"), `normaltEtiket` og
+`medEtiket` (i stedet for "Normalt" og "Med Copilot").
 
 ---
 

@@ -1,0 +1,76 @@
+{
+  "titel": "Når Copilot tager fejl",
+  "varighed": 5,
+  "program": "Alle programmer",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Copilot er hurtig, men den kan tage fejl. Du lærer at fange fejlene på et øjeblik – før du sender noget videre."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man tjekker, hvor Copilot har sit svar fra.",
+      "fil": "media/naar-copilot-tager-fejl.mp4",
+      "beskrivelse": "Copilot i Word eller Outlook: Vis et svar med en henvisning (et lille tal). Hold musen over eller klik på henvisningen, så stedet i kilden bliver vist. 10 sekunder, uden lyd."
+    },
+    {
+      "type": "fejl",
+      "titel": "Find fejlene",
+      "tekst": "Copilot har opsummeret en mail om julefrokosten. To ting passer ikke. Sammenlign med mailen, og tryk på fejlene.",
+      "kilde": {
+        "titel": "Mail fra Mette: Julefrokost",
+        "tekst": [
+          "Hej alle",
+          "Julefrokosten bliver fredag d. 13. december kl. 18 i kantinen. Vi får mad udefra og musik bagefter.",
+          "Tilmelding senest 29. november via linket på intranettet. Det koster 150 kr., som bliver trukket over lønnen.",
+          "Partnere er desværre ikke inviteret i år.",
+          "Mette"
+        ]
+      },
+      "prompt": "Opsummer mailen",
+      "saetninger": [
+        { "tekst": "Julefrokosten er fredag d. 13. december kl. 18 i kantinen." },
+        { "tekst": "Tilmeldingen skal ske senest 22. november.", "forkert": true, "forklaring": "I mailen står der **29. november**." },
+        { "tekst": "Det koster 150 kr., som bliver trukket over lønnen." },
+        { "tekst": "Du må gerne tage din partner med.", "forkert": true, "forklaring": "Mailen siger det modsatte: Partnere er **ikke** inviteret i år." }
+      ],
+      "faerdig": "Godt fanget! Tjek altid datoer, beløb og navne mod kilden."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Hvilke dele af et svar fra Copilot skal du især tjekke?",
+      "svar": [
+        "Stavefejl",
+        "Datoer, beløb, navne og løfter",
+        "Overskrifterne"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Det er især tal og fakta, Copilot kan blande sammen. Det er også dem, der giver de største problemer, hvis de er forkerte."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Gør det til en vane",
+      "tekst": "Næste gang du bruger Copilot til noget vigtigt:",
+      "trin": [
+        "Læs svaret igennem.",
+        "Tjek **datoer, beløb, navne og løfter** mod kilden. Klik på henvisningerne.",
+        "Er du i tvivl, så bed Copilot vise, hvor den har det fra."
+      ],
+      "prompt": "Vis mig præcis, hvor i kilden du har det fra."
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "tekst": "En fejl, der er sendt videre, tager tid at rette. Et hurtigt tjek tager næsten ingen tid.",
+      "foerTekst": "At rette en fejl bagefter tager ca.",
+      "normaltEtiket": "Rette bagefter",
+      "medEtiket": "Hurtigt tjek",
+      "normalt": 20,
+      "medCopilot": 2,
+      "gangePrMaaned": 2,
+      "hvad": "at fange en fejl"
+    }
+  ]
+}

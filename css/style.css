@@ -475,6 +475,77 @@ h1.scene-titel { font-size: clamp(32px, 8vw, 44px); line-height: 1.1; margin-top
 .side-titel { font-size: 21px; font-weight: 700; font-family: var(--skrift); line-height: 1.25; }
 .side-under { font-weight: 700; font-family: var(--skrift); margin-top: 8px; }
 
+
+/* Mailtråd */
+.mail-antal { font-size: 14px; font-weight: 400; color: var(--daempet); }
+.traad-mail { display: grid; gap: 8px; padding-top: 14px; border-top: 1px solid var(--linje); }
+.mailvisning .mail { max-height: 520px; overflow: auto; }
+
+/* Startside (Copilot Chat) */
+.startside { padding: 22px 20px; display: grid; gap: 20px; align-content: start; }
+.start-hilsen { font-size: 24px; font-weight: 700; }
+.start-blok { display: grid; gap: 8px; }
+.start-overskrift { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--daempet); }
+.start-blok ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 15px; }
+.start-blok li { display: flex; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--flade-2); }
+.start-tid { font-weight: 700; font-variant-numeric: tabular-nums; min-width: 3em; }
+.fil-ikon { width: 14px; height: 18px; border-radius: 2px; border: 2px solid var(--daempet); flex: none; opacity: .6; }
+
+/* Præsentation */
+.praesentation { background: var(--flade-2); padding: 18px; display: grid; place-items: center; min-height: 100%; }
+.vindue-indhold.ny .slides { animation: ind .4s ease both; }
+.slides { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 12px; background: var(--flade-2); align-content: start; min-height: 100%; }
+.slide {
+  aspect-ratio: 16 / 9; max-width: 100%; background: var(--flade);
+  box-shadow: 0 1px 3px rgba(20, 20, 20, .1); border-radius: 4px;
+  padding: 10px 12px; overflow: hidden; display: grid; align-content: start; gap: 4px;
+}
+.slide-titel { font-weight: 700; font-size: 13px; line-height: 1.25; }
+.slide ul { margin: 0; padding-left: 14px; font-size: 11px; line-height: 1.35; color: var(--daempet); }
+.slide--stor { width: min(100%, 420px); place-content: center; text-align: center; }
+.slide--tom p { border: 1.5px dashed var(--linje); padding: 18px 24px; color: var(--daempet); font-size: 15px; }
+
+/* Regneark */
+.regneark { overflow: auto; max-height: 460px; }
+.regneark table { border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; min-width: 100%; }
+.regneark th, .regneark td { border: 1px solid var(--linje); padding: 6px 10px; white-space: nowrap; text-align: left; }
+.regneark thead th, .regneark tbody th { background: var(--flade-2); color: var(--daempet); font-weight: 600; text-align: center; }
+.regneark tbody th { width: 34px; }
+.regneark .overskrifter td { font-weight: 700; background: var(--accent-blid); }
+.regneark td.tal { text-align: right; }
+
+/* Kilder under et svar */
+.kilder { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 10px; padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--ai) 20%, transparent); }
+.kilder-titel { font-size: 12px; font-weight: 700; color: var(--ai); }
+.kilde { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; padding: 3px 10px 3px 4px; border-radius: 99px; background: var(--flade); }
+.kilde b { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; background: var(--ai); color: #FFFFFF; font-size: 11px; }
+
+/* Arbejde/Web-skift i Copilot-panelet */
+.cp-skift { margin-left: auto; display: inline-flex; padding: 3px; border-radius: 99px; background: var(--flade-2); font-size: 12px; font-weight: 600; }
+.cp-skift span { padding: 3px 10px; border-radius: 99px; color: var(--daempet); }
+.cp-skift .aktiv { background: var(--flade); color: var(--blaek); box-shadow: 0 1px 2px rgba(20, 20, 20, .1); }
+
+/* ---------- Find fejlen ---------- */
+
+.fejl { display: grid; gap: 14px; }
+.saetninger { line-height: 1.8; }
+.saetning {
+  display: inline; font: inherit; text-align: left; padding: 2px 3px; margin: 0 -1px;
+  border: 0; border-radius: 4px; background: transparent; color: inherit; cursor: pointer;
+  text-decoration: underline dotted color-mix(in srgb, var(--ai) 45%, transparent); text-underline-offset: 4px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  transition: background-color .2s;
+}
+.saetning:hover:not(:disabled) { background: color-mix(in srgb, var(--ai) 12%, transparent); }
+.saetning:disabled { cursor: default; text-decoration: none; }
+.saetning.ok { background: var(--godt-blid); }
+.saetning.fanget { background: var(--hint-blid); color: var(--hint); text-decoration: line-through; text-decoration-color: var(--hint); }
+.saetning.puls { animation: puls-tekst 1.2s ease-in-out infinite; }
+@keyframes puls-tekst { 50% { background: color-mix(in srgb, var(--ai) 22%, transparent); } }
+.fejl-forklaringer { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.fejl-forklaringer li { display: flex; gap: 10px; align-items: baseline; animation: ind .3s ease both; }
+.fejl-forklaringer .ikon { color: var(--godt); }
+
 /* Copilot-panelet: bundark på mobil, sidepanel på bred skærm */
 .cp-panel {
   position: absolute; left: 0; right: 0; bottom: 0;
@@ -484,6 +555,9 @@ h1.scene-titel { font-size: clamp(32px, 8vw, 44px); line-height: 1.1; margin-top
   box-shadow: 0 -8px 30px rgba(0, 0, 0, .18);
   display: flex; flex-direction: column;
   animation: op .3s ease both;
+}
+@media (max-width: 759px) {
+  .vindue.panel-lav .cp-panel { height: 52%; transition: height .4s ease; }
 }
 @keyframes op { from { transform: translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
 

@@ -1,0 +1,103 @@
+{
+  "titel": "Hvad har jeg misset?",
+  "varighed": 5,
+  "program": "Outlook",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Du lærer at få Copilot til at opsummere en lang mailtråd, så du er opdateret på et minut – fx når du kommer tilbage fra ferie."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man får en mailtråd opsummeret i Outlook.",
+      "fil": "media/hvad-har-jeg-misset.mp4",
+      "beskrivelse": "Outlook: Åbn en lang mailtråd, og klik på Opsummer (Copilot) øverst i mailen. Vis opsummeringen. 10–15 sekunder, uden lyd."
+    },
+    {
+      "type": "simulator",
+      "titel": "Prøv selv",
+      "tekst": "Du har haft to dages fri, og der er kommet fem mails om flytningen. Bed Copilot om overblikket.",
+      "app": "outlook",
+      "opgave": "Find Copilot-knappen i mailen, og klik på den.",
+      "vindue": {
+        "titel": "Indbakke",
+        "emne": "Flytning til 2. sal",
+        "indbakke": [
+          { "fra": "Mette", "emne": "Flytning til 2. sal" },
+          { "fra": "Kantinen", "emne": "Menu i uge 11" },
+          { "fra": "IT-support", "emne": "Husk at genstarte din computer" },
+          { "fra": "Jonas", "emne": "Kage på fredag?" }
+        ],
+        "traad": [
+          { "fra": "Mette", "tid": "Mandag 08:12", "tekst": ["Hej alle. Vi flytter til 2. sal i uge 12. IT flytter computerne torsdag d. 21. marts efter kl. 15.", "Pak gerne jeres skriveborde ned i kasser senest torsdag kl. 12. Kasserne står i kopirummet."] },
+          { "fra": "Jonas", "tid": "Mandag 09:40", "tekst": "Skal vi selv flytte skærmene?" },
+          { "fra": "Mette", "tid": "Mandag 10:05", "tekst": "Nej, IT tager skærme og dockingstationer. I skal kun pakke papirer og personlige ting." },
+          { "fra": "Aisha", "tid": "Mandag 13:22", "tekst": "Hvad med arkivskabene på gangen?" },
+          { "fra": "Mette", "tid": "Tirsdag 08:30", "tekst": ["Flyttefirmaet tager arkivskabene fredag. Husk at tømme dem for fortrolige papirer først – de skal i den låste container.", "Den nye pladsfordeling kommer på fredag."] }
+        ]
+      },
+      "prompts": [
+        {
+          "tekst": "Opsummer tråden",
+          "svar": "**Kort fortalt**\n- I flytter til 2. sal i uge 12.\n- Pak dit skrivebord ned i kasser senest torsdag d. 21. marts kl. 12. Kasserne står i kopirummet.\n- IT flytter computere, skærme og dockingstationer torsdag efter kl. 15.\n- Flyttefirmaet tager arkivskabene fredag. Tøm dem for fortrolige papirer først – de skal i den låste container.\n- Den nye pladsfordeling kommer på fredag."
+        },
+        {
+          "tekst": "Hvad skal jeg selv gøre?",
+          "svar": "Du skal gøre to ting:\n- **Senest torsdag kl. 12:** Pak papirer og personlige ting i kasser fra kopirummet.\n- **Før fredag:** Tøm arkivskabet for fortrolige papirer, og læg dem i den låste container.\n\nSkærm og computer klarer IT."
+        },
+        {
+          "tekst": "Er der noget, jeg skal svare på?",
+          "svar": "Nej. Ingen har stillet dig et direkte spørgsmål, og Mette har svaret på de spørgsmål, der kom undervejs."
+        }
+      ],
+      "faerdig": "Flot! Fem mails på et øjeblik. Prøv gerne de andre forslag også."
+    },
+    {
+      "type": "valg",
+      "titel": "Hvilken prompt giver det bedste overblik?",
+      "tekst": "Vælg den, du tror virker bedst. Så ser du begge svar.",
+      "a": {
+        "prompt": "Hvad har jeg misset?",
+        "svar": "Der har været flere mails om flytningen til 2. sal. Kollegerne har stillet spørgsmål om skærme og arkivskabe, og Mette har svaret."
+      },
+      "b": {
+        "prompt": "Opsummer tråden om flytningen, og fortæl mig, hvad jeg selv skal gøre og hvornår.",
+        "svar": "**Flytningen**\n- I flytter til 2. sal i uge 12. IT tager computere og skærme torsdag.\n\n**Det skal du gøre**\n- Pak papirer og personlige ting i kasser senest torsdag kl. 12.\n- Tøm arkivskabet for fortrolige papirer før fredag."
+      },
+      "bedst": "b",
+      "forklaring": "Når du beder om **det, du selv skal gøre**, får du en huskeliste i stedet for et resumé. Det er den, du har brug for efter ferien."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Hvor kan du ellers bruge Copilot til at blive opdateret efter ferie?",
+      "svar": [
+        "Kun i Outlook",
+        "Også i lange chats i Teams",
+        "Kun i Word"
+      ],
+      "rigtigt": 1,
+      "forklaring": "I en travl Teams-chat kan du klikke på **Copilot** og spørge: »Hvad har jeg misset?« Det virker ligesom i Outlook."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Prøv det på din egen indbakke",
+      "tekst": "Find den længste mailtråd i din indbakke.",
+      "trin": [
+        "Åbn tråden i Outlook.",
+        "Klik på **Opsummer** eller **Copilot** øverst i mailen.",
+        "Vil du have en huskeliste, så sæt prompten ind i Copilot."
+      ],
+      "prompt": "Opsummer tråden, og fortæl mig, hvad jeg selv skal gøre og hvornår."
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "normalt": 15,
+      "medCopilot": 3,
+      "gangePrMaaned": 8,
+      "hvad": "at læse en lang mailtråd"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 // lægger besparelsen til brugerens samlede tal (kun i browseren).
 //
 // Datafelter: normalt (min), medCopilot (min), gangePrMaaned, hvad
+// Valgfrit: foerTekst ("Det tager normalt"), normaltEtiket ("Normalt"), medEtiket ("Med Copilot")
 
 import { h, ikon, formaterTid, reduceretBevaegelse } from '../dom.js';
 import { markerFaerdig } from '../lager.js';
@@ -11,6 +12,9 @@ export function tid(trin, ctx) {
   const med = Number(trin.medCopilot) || 0;
   const gange = Number(trin.gangePrMaaned) || 1;
   const prMaaned = Math.max(0, normalt - med) * gange;
+  const foerTekst = trin.foerTekst || 'Det tager normalt';
+  const normaltEtiket = trin.normaltEtiket || 'Normalt';
+  const medEtiket = trin.medEtiket || 'Med Copilot';
 
   markerFaerdig(ctx.forloeb.id, prMaaned);
   const samlet = ctx.samletMinutter();
@@ -28,11 +32,11 @@ export function tid(trin, ctx) {
 
   return h('div', { class: 'tid' },
     h('p', { class: 'tid-stor' },
-      `Det tager normalt ${normalt} min. `,
-      h('span', { class: 'tid-ai' }, `Med Copilot: ${med} min.`)),
+      `${foerTekst} ${normalt} min. `,
+      h('span', { class: 'tid-ai' }, `${medEtiket}: ${med} min.`)),
     h('div', { class: 'bjaelker' },
-      bjaelke('Normalt', normalt, 'normal'),
-      bjaelke('Med Copilot', med, 'ai')),
+      bjaelke(normaltEtiket, normalt, 'normal'),
+      bjaelke(medEtiket, med, 'ai')),
     h('p', { class: 'tid-tekst' },
       `Gør du det ${gange === 1 ? 'én gang' : gange + ' gange'} om måneden, sparer du `,
       h('strong', {}, formaterTid(prMaaned)), ' om måneden.'),

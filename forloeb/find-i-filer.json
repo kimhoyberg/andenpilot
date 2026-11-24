@@ -1,0 +1,105 @@
+{
+  "titel": "Find det i dine egne filer",
+  "varighed": 5,
+  "program": "Copilot Chat",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Du lærer at spørge Copilot om noget fra dine egne mails, møder og filer – så du ikke selv skal lede."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man spørger Copilot om en sag fra arbejdet.",
+      "fil": "media/find-i-filer.mp4",
+      "beskrivelse": "Copilot i Teams eller på microsoft365.com: Vælg Arbejde øverst, skriv et spørgsmål om en sag, og vis svaret med henvisninger til mails og filer. Klik på en af henvisningerne. 15 sekunder, uden lyd."
+    },
+    {
+      "type": "simulator",
+      "titel": "Prøv selv",
+      "tekst": "Om lidt skal du ringe til rengøringsfirmaet, men du kan ikke huske, hvad I aftalte sidst. Spørg Copilot.",
+      "app": "chat",
+      "arbejde": true,
+      "opgave": "Find Copilot på startsiden, og klik på den.",
+      "vindue": {
+        "titel": "Microsoft 365",
+        "hilsen": "Godmorgen",
+        "kalender": [
+          { "tid": "09:00", "titel": "Ugemøde i teamet" },
+          { "tid": "11:30", "titel": "Frokost med nye kolleger" },
+          { "tid": "14:00", "titel": "Opkald: rengøringsfirmaet" }
+        ],
+        "filer": [
+          "Kontrakt rengøring.pdf",
+          "Referat – møde med rengøringsfirmaet.docx",
+          "Budget kontordrift.xlsx"
+        ]
+      },
+      "prompts": [
+        {
+          "tekst": "Hvad aftalte vi med rengøringsfirmaet sidst?",
+          "svar": "På mødet den 3. februar aftalte I:\n- Rengøringen flyttes fra kl. 7 til kl. 16, så den ikke forstyrrer om morgenen.\n- Mødelokalerne gøres rent hver dag i stedet for to gange om ugen.\n- Prisen stiger 4 % fra 1. april.\n- Rengøringsfirmaet sender en ny plan. Den er ikke kommet endnu.",
+          "kilder": ["Referat – møde med rengøringsfirmaet.docx", "Mail fra Mette: Ny rengøringsplan"]
+        },
+        {
+          "tekst": "Hvad står der i kontrakten om opsigelse?",
+          "svar": "Kontrakten kan opsiges med **3 måneders varsel** til udgangen af en måned. Opsigelsen skal være skriftlig.",
+          "kilder": ["Kontrakt rengøring.pdf"]
+        },
+        {
+          "tekst": "Hvad skal jeg huske til opkaldet kl. 14?",
+          "svar": "Til opkaldet kl. 14 kan du:\n- Spørge efter den nye rengøringsplan, som de lovede efter mødet 3. februar.\n- Bekræfte, at mødelokalerne nu gøres rent hver dag.\n- Spørge, om prisstigningen på 4 % gælder fra 1. april som aftalt.",
+          "kilder": ["Referat – møde med rengøringsfirmaet.docx", "Kalender: Opkald: rengøringsfirmaet"]
+        }
+      ],
+      "faerdig": "Flot! Læg mærke til kilderne under svaret – dem kan du klikke på i det rigtige program."
+    },
+    {
+      "type": "valg",
+      "titel": "Hvilket spørgsmål giver det bedste svar?",
+      "tekst": "Vælg det, du tror virker bedst. Så ser du begge svar.",
+      "a": {
+        "prompt": "rengøring",
+        "svar": "Rengøring handler om at holde lokaler rene og hygiejniske. Har du en aftale med et rengøringsfirma, kan du finde detaljerne i kontrakten."
+      },
+      "b": {
+        "prompt": "Hvad aftalte vi med rengøringsfirmaet på mødet i februar? Tag pris og tider med.",
+        "svar": "På mødet den 3. februar aftalte I:\n- Rengøring kl. 16 i stedet for kl. 7.\n- Mødelokaler hver dag.\n- Prisen stiger 4 % fra 1. april."
+      },
+      "bedst": "b",
+      "forklaring": "Skriv et rigtigt spørgsmål, og nævn sagen. Så ved Copilot, hvad den skal lede efter i dine mails og filer – i stedet for at give et svar fra internettet."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Hvad skal være valgt øverst i Copilot, for at den leder i dine egne mails og filer?",
+      "svar": [
+        "Web",
+        "Arbejde",
+        "Det er ligegyldigt"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Med **Arbejde** valgt leder Copilot i det, du har adgang til på arbejdet. Med **Web** søger den på internettet."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Prøv det på en rigtig sag",
+      "tekst": "Tænk på en sag, du skal i gang med igen.",
+      "trin": [
+        "Åbn Copilot i Teams eller på microsoft365.com.",
+        "Vælg **Arbejde** øverst.",
+        "Sæt prompten ind, og skriv sagens navn i stedet for [sagen].",
+        "Klik på henvisningerne for at se, hvor svaret kommer fra."
+      ],
+      "prompt": "Hvad har vi aftalt om [sagen]? Giv mig de vigtigste punkter, og vis hvor du har det fra."
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "normalt": 20,
+      "medCopilot": 3,
+      "gangePrMaaned": 6,
+      "hvad": "at lede efter en aftale i mails og filer"
+    }
+  ]
+}

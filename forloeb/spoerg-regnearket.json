@@ -1,0 +1,100 @@
+{
+  "titel": "Spørg dit regneark",
+  "varighed": 5,
+  "program": "Excel",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Du lærer at stille spørgsmål til et regneark med almindelige ord – helt uden formler."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man spørger Copilot om tallene i Excel.",
+      "fil": "media/spoerg-regnearket.mp4",
+      "beskrivelse": "Excel: Åbn et regneark med en tabel, klik på Copilot, og skriv et spørgsmål om tallene. Vis svaret, fx et diagram eller en ny kolonne. 15 sekunder, uden lyd."
+    },
+    {
+      "type": "simulator",
+      "titel": "Prøv selv",
+      "tekst": "Du har kontorets udgifter for første halvår. Find ud af, hvor pengene går hen.",
+      "app": "excel",
+      "opgave": "Find Copilot-knappen i Excel, og klik på den.",
+      "vindue": {
+        "titel": "Udgifter kontor.xlsx",
+        "tabel": {
+          "kolonner": ["Måned", "Kontorartikler", "Kaffe og frugt", "Rengøring", "I alt"],
+          "raekker": [
+            ["Januar", "3.200", "1.800", "9.500", "14.500"],
+            ["Februar", "2.100", "1.900", "9.500", "13.500"],
+            ["Marts", "5.400", "2.000", "9.500", "16.900"],
+            ["April", "1.900", "2.200", "9.880", "13.980"],
+            ["Maj", "2.300", "2.100", "9.880", "14.280"],
+            ["Juni", "2.000", "2.600", "9.880", "14.480"]
+          ]
+        }
+      },
+      "prompts": [
+        {
+          "tekst": "Hvilken måned havde de højeste udgifter?",
+          "svar": "**Marts** havde de højeste udgifter med 16.900 kr.\n\nDet skyldes især kontorartikler, som kostede 5.400 kr. – mere end dobbelt så meget som i de andre måneder."
+        },
+        {
+          "tekst": "Hvad har vi brugt i alt på kaffe og frugt?",
+          "svar": "I har brugt **12.600 kr.** på kaffe og frugt i første halvår.\n\nUdgiften er steget fra 1.800 kr. i januar til 2.600 kr. i juni."
+        },
+        {
+          "tekst": "Hvorfor stiger rengøringen i april?",
+          "svar": "Rengøringen stiger fra 9.500 kr. til 9.880 kr. i april. Det er en stigning på **4 %**.\n\nRegnearket siger ikke hvorfor, så tjek aftalen med rengøringsfirmaet."
+        }
+      ],
+      "faerdig": "Flot! Ingen formler – bare et spørgsmål. Prøv gerne de andre forslag også."
+    },
+    {
+      "type": "valg",
+      "titel": "Hvilket spørgsmål giver det bedste svar?",
+      "tekst": "Vælg det, du tror virker bedst. Så ser du begge svar.",
+      "a": {
+        "prompt": "Udgifter?",
+        "svar": "Regnearket viser kontorets udgifter fra januar til juni, fordelt på kontorartikler, kaffe og frugt og rengøring."
+      },
+      "b": {
+        "prompt": "Hvilken udgift er steget mest fra januar til juni? Vis det i kroner og procent.",
+        "svar": "**Kaffe og frugt** er steget mest:\n- Fra 1.800 kr. i januar til 2.600 kr. i juni\n- Det er 800 kr. mere – en stigning på ca. 44 %\n\nKontorartikler er faldet, og rengøringen er steget 4 %."
+      },
+      "bedst": "b",
+      "forklaring": "Et præcist spørgsmål giver et præcist svar. Fortæl Copilot, **hvad du vil vide**, og **hvordan du vil have det vist**."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Hvad får Copilot i Excel til at virke bedst?",
+      "svar": [
+        "At tallene står i en tabel med tydelige overskrifter",
+        "At regnearket har mange farver",
+        "At der er mange faner"
+      ],
+      "rigtigt": 0,
+      "forklaring": "Markér dine data, og vælg **Formatér som tabel**. Tydelige overskrifter som »Måned« og »Beløb« hjælper Copilot med at forstå tallene."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Prøv det på dit eget regneark",
+      "tekst": "Find et regneark, du bruger i forvejen.",
+      "trin": [
+        "Sørg for, at filen er gemt i OneDrive eller SharePoint.",
+        "Markér dine data, og vælg **Formatér som tabel**, hvis de ikke allerede er det.",
+        "Klik på **Copilot** på fanen **Hjem**, og sæt prompten ind."
+      ],
+      "prompt": "Hvad er de tre vigtigste ting, jeg skal vide om tallene i denne tabel?"
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "normalt": 20,
+      "medCopilot": 5,
+      "gangePrMaaned": 3,
+      "hvad": "at finde svar i et regneark"
+    }
+  ]
+}
