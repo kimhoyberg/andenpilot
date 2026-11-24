@@ -112,7 +112,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 /* Siderne med faner er bredere på store skærme, så fanerne står samme sted.
    Forsidens indhold holder sig til en rolig læsebredde. */
 main:has(.faner-top) { max-width: 1040px; }
-.forside-top, .status, .forloeb-liste, .forside-info, .forside-bund { max-width: 680px; }
+.status, .forloeb-liste, .forside-info, .forside-bund { max-width: 680px; }
+@media (min-width: 760px) {
+  .forside-top .forside-titel, .forside-top .forside-tekst { max-width: none; }
+}
 
 .faner-top {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
