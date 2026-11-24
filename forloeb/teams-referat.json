@@ -1,0 +1,98 @@
+{
+  "titel": "Få et referat af dit Teams-møde",
+  "varighed": 5,
+  "program": "Teams",
+  "trin": [
+    {
+      "type": "intro",
+      "tekst": "Du lærer at bede Copilot om et referat af et møde. Så slipper du for at tage noter og skrive dem rent bagefter."
+    },
+    {
+      "type": "video",
+      "titel": "Sådan ser det ud",
+      "tekst": "Se, hvordan man beder Copilot om et referat i et Teams-møde.",
+      "fil": "media/teams-referat.mp4",
+      "beskrivelse": "Et Teams-møde med transskription slået til. Klik på Copilot øverst i mødet, vælg en prompt om at opsummere mødet, og vis svaret. 10–15 sekunder, uden lyd."
+    },
+    {
+      "type": "simulator",
+      "titel": "Prøv selv",
+      "tekst": "Du er med i ugemødet i Kundeservice. Bed Copilot om et referat.",
+      "app": "teams",
+      "opgave": "Find Copilot-knappen i mødet, og klik på den.",
+      "vindue": {
+        "titel": "Ugemøde – Kundeservice",
+        "deltagere": ["Mette", "Jonas", "Aisha", "Peter", "Dig"],
+        "udskrift": [
+          { "navn": "Mette", "tid": "10:02", "tekst": "Så tager vi telefontiden. Fra 1. februar foreslår jeg, at vi lukker telefonen kl. 15 i stedet for kl. 16." },
+          { "navn": "Jonas", "tid": "10:04", "tekst": "Det er fint med mig. Så skal hjemmesiden opdateres – det tager jeg mig af." },
+          { "navn": "Aisha", "tid": "10:06", "tekst": "Vi skal også skrive til de faste kunder. Jeg laver et udkast til en mail inden fredag." },
+          { "navn": "Mette", "tid": "10:09", "tekst": "Godt. Hvad med vagtplanen?" },
+          { "navn": "Peter", "tid": "10:11", "tekst": "Jeg er ikke sikker på, at vi kan dække fredag eftermiddag. Det må vi kigge på igen." },
+          { "navn": "Mette", "tid": "10:14", "tekst": "Okay, det tager vi på næste møde. Jeg sender en kort status til ledelsen." }
+        ]
+      },
+      "prompts": [
+        {
+          "tekst": "Lav et kort referat af mødet",
+          "svar": "**Referat – ugemøde i Kundeservice**\n- Fra 1. februar lukker telefonen kl. 15 i stedet for kl. 16.\n- Jonas opdaterer hjemmesiden med den nye telefontid.\n- Aisha skriver et udkast til en mail til de faste kunder inden fredag.\n- Det er ikke afklaret, hvem der dækker telefonen fredag eftermiddag. Punktet tages op på næste møde.\n- Mette sender en kort status til ledelsen."
+        },
+        {
+          "tekst": "Hvem skal gøre hvad?",
+          "svar": "Der blev fordelt tre opgaver:\n- **Jonas:** Opdatere hjemmesiden med den nye telefontid.\n- **Aisha:** Skrive et udkast til en mail til de faste kunder – inden fredag.\n- **Mette:** Sende en kort status til ledelsen."
+        },
+        {
+          "tekst": "Hvad mangler vi at beslutte?",
+          "svar": "Ét punkt er stadig åbent:\n- **Vagtplanen fredag eftermiddag.** Peter er ikke sikker på, at I kan dække den. I aftalte at tage det op på næste møde."
+        }
+      ],
+      "faerdig": "Flot! Sådan får du et referat. Prøv gerne de andre forslag også."
+    },
+    {
+      "type": "valg",
+      "titel": "Hvilken prompt giver det bedste referat?",
+      "tekst": "Vælg den, du tror virker bedst. Så ser du begge svar.",
+      "a": {
+        "prompt": "Referat",
+        "svar": "Mødet handlede om telefontiden i Kundeservice og forskellige praktiske ting. Deltagerne drøftede nogle ændringer og fordelte opgaver. Der blev også talt om vagtplanen."
+      },
+      "b": {
+        "prompt": "Lav et kort referat i punktform. Tag beslutninger med, hvem der gør hvad, og hvad vi mangler at beslutte.",
+        "svar": "**Beslutninger**\n- Telefonen lukker kl. 15 fra 1. februar.\n\n**Hvem gør hvad**\n- Jonas: opdaterer hjemmesiden.\n- Aisha: udkast til mail til faste kunder inden fredag.\n- Mette: status til ledelsen.\n\n**Mangler at beslutte**\n- Hvem dækker telefonen fredag eftermiddag?"
+      },
+      "bedst": "b",
+      "forklaring": "Jo mere du fortæller Copilot, hvad du skal bruge, jo bedre bliver svaret. Med B får du et referat, du kan sende videre med det samme."
+    },
+    {
+      "type": "quiz",
+      "titel": "Et hurtigt spørgsmål",
+      "spoergsmaal": "Hvad skal være slået til i mødet, for at Copilot kan lave et referat bagefter?",
+      "svar": [
+        "Kameraet",
+        "Transskription – altså en udskrift af det, der bliver sagt",
+        "Mødechatten"
+      ],
+      "rigtigt": 1,
+      "forklaring": "Copilot læser udskriften af mødet. Slå transskription til, når mødet starter – eller bed mødelederen om det."
+    },
+    {
+      "type": "goer-det",
+      "titel": "Prøv det i dit næste møde",
+      "tekst": "Find et Teams-møde i din kalender i denne uge.",
+      "trin": [
+        "Når mødet starter: klik på **Mere** (…) og slå **transskription** til – eller bed mødelederen om det.",
+        "Klik på **Copilot** øverst i mødet. Efter mødet finder du Copilot i mødets chat.",
+        "Sæt prompten ind, og læs svaret igennem, før du sender det videre."
+      ],
+      "prompt": "Lav et kort referat i punktform. Tag beslutninger med, hvem der gør hvad, og hvad vi mangler at beslutte."
+    },
+    {
+      "type": "tid",
+      "titel": "Så meget tid sparer du",
+      "normalt": 20,
+      "medCopilot": 5,
+      "gangePrMaaned": 4,
+      "hvad": "at skrive et referat"
+    }
+  ]
+}
