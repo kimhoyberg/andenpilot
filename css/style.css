@@ -100,7 +100,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 
 /* ---------- Forside ---------- */
 
-.forside-top { padding: 40px 0 32px; }
+.forside-top { padding: 40px 0 28px; display: grid; gap: 16px; }
 
 .maerkevare {
   display: inline-flex; align-items: center; gap: 8px;
@@ -109,11 +109,6 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 
 /* ---------- Faner ---------- */
 
-@media (min-width: 760px) {
-  .forside-top .forside-titel, .forside-top .forside-tekst { max-width: none; }
-  .forside-top .forside-titel { font-size: 38px; }
-  .info-top .info-overskrift { font-size: 30px; }
-}
 
 .faner-top {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
@@ -134,15 +129,13 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .fane:hover { color: var(--blaek); }
 .fane.aktiv { background: var(--flade); color: var(--blaek); box-shadow: 0 1px 3px rgba(20, 20, 20, .1); }
 
-.forside-titel {
-  font-size: clamp(32px, 8vw, 46px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  max-width: 14ch;
+/* Samme overskrift på begge faner, så intet hopper, når man skifter */
+.forside-titel, .info-overskrift {
+  font-size: 30px; line-height: 1.15; letter-spacing: -0.02em;
+  font-weight: 700; text-wrap: balance;
 }
 
-.forside-tekst { margin-top: 16px; color: var(--daempet); font-size: 18px; max-width: 34ch; }
+.forside-tekst { color: var(--daempet); font-size: 18px; }
 
 .status {
   display: grid; gap: 14px;
@@ -198,10 +191,6 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 /* Samme smalle bredde som forsidens liste: én kolonne, også på store skærme. */
 
 .info-top { padding: 40px 0 28px; display: grid; gap: 16px; }
-.info-overskrift {
-  font-size: clamp(30px, 7vw, 40px); line-height: 1.15; letter-spacing: -0.02em;
-  font-weight: 700; text-wrap: balance;
-}
 .info-fremhaevet { color: var(--ai); }
 .info-tekst { color: var(--daempet); font-size: 18px; }
 
