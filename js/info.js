@@ -12,20 +12,24 @@ export function infoSide(d, forloeb) {
   const uden = d.uden || {};
   const med = d.med || {};
 
+  // Lille mærke foran hver version: grå prik for Copilot Chat, gnist for licens
+  const udenMaerke = () => h('span', { class: 'version-prik', 'aria-hidden': 'true' });
+  const medMaerke = () => ikon('gnist', 'ikon version-gnist');
+
   const raekker = (d.raekker || []).map((r, i) => {
     const f = r.forloeb ? forloeb.get(r.forloeb) : null;
     return h('li', { class: 'info-raekke' },
-      h('div', { class: 'info-emne' },
-        h('span', { class: 'info-nr', 'aria-hidden': 'true' }, String(i + 1).padStart(2, '0')),
-        h('h2', { class: 'info-titel' }, r.titel)),
-      h('div', { class: 'info-uden' },
-        h('p', { class: 'info-kolonne-navn kun-smal' }, uden.navn),
-        h('p', {}, formateret(r.uden)),
-        r.udenMaerke ? h('p', { class: 'info-maerke' }, r.udenMaerke) : null),
-      h('div', { class: 'info-med' },
-        h('p', { class: 'info-kolonne-navn info-kolonne-navn--med kun-smal' }, med.navn),
-        h('p', {}, formateret(r.med)),
-        r.eksempel ? h('p', { class: 'info-eksempel' }, `“${r.eksempel}”`) : null,
+      h('span', { class: 'info-nr', 'aria-hidden': 'true' }, String(i + 1).padStart(2, '0')),
+      h('div', { class: 'info-indhold' },
+        h('h2', { class: 'info-titel' }, r.titel),
+        h('div', { class: 'info-uden' },
+          h('p', { class: 'info-etiket' }, udenMaerke(), uden.navn,
+            r.udenMaerke ? h('span', { class: 'info-etiket-tillaeg' }, ` · ${r.udenMaerke}`) : null),
+          h('p', {}, formateret(r.uden))),
+        h('div', { class: 'info-med' },
+          h('p', { class: 'info-etiket info-etiket--med' }, medMaerke(), med.navn),
+          h('p', {}, formateret(r.med)),
+          r.eksempel ? h('p', { class: 'info-eksempel' }, `“${r.eksempel}”`) : null),
         f ? h('a', { class: 'info-proev', href: `#${f.id}` },
           h('span', {}, 'Prøv det: ', h('strong', {}, f.titel)),
           ikon('pil')) : null));
@@ -37,10 +41,10 @@ export function infoSide(d, forloeb) {
         d.titel, h('br'), h('span', { class: 'info-fremhaevet' }, d.titelFremhaevet)),
       d.tekst ? h('p', { class: 'info-tekst' }, formateret(d.tekst)) : null),
 
-    h('div', { class: 'info-kolonner', 'aria-hidden': 'true' },
-      h('span'),
-      h('p', {}, h('span', { class: 'info-kolonne-navn' }, uden.navn), h('span', { class: 'info-under' }, uden.under)),
-      h('p', {}, h('span', { class: 'info-kolonne-navn info-kolonne-navn--med' }, med.navn), h('span', { class: 'info-under' }, med.under))),
+    // De to versioner forklares én gang her i stedet for som kolonner
+    h('dl', { class: 'versioner' },
+      h('div', {}, h('dt', {}, udenMaerke(), uden.navn), h('dd', {}, uden.under)),
+      h('div', {}, h('dt', { class: 'med' }, medMaerke(), med.navn), h('dd', {}, med.under))),
 
     h('ol', { class: 'info-liste' }, raekker),
 
