@@ -9,14 +9,14 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se, hvor svaret kommer fra",
       "tekst": "Se, hvordan man tjekker, hvor Copilot har sit svar fra.",
       "fil": "media/naar-copilot-tager-fejl.mp4",
       "beskrivelse": "Copilot i Word eller Outlook: Vis et svar med en henvisning (et lille tal). Hold musen over eller klik på henvisningen, så stedet i kilden bliver vist. 10 sekunder, uden lyd."
     },
     {
       "type": "fejl",
-      "titel": "Find fejlene",
+      "titel": "Find de to fejl",
       "tekst": "Copilot har opsummeret en mail om julefrokosten. To ting passer ikke. Sammenlign med mailen, og tryk på fejlene.",
       "kilde": {
         "titel": "Mail fra Mette: Julefrokost",
@@ -30,16 +30,27 @@
       },
       "prompt": "Opsummer mailen",
       "saetninger": [
-        { "tekst": "Julefrokosten er fredag d. 13. december kl. 18 i kantinen." },
-        { "tekst": "Tilmeldingen skal ske senest 22. november.", "forkert": true, "forklaring": "I mailen står der **29. november**." },
-        { "tekst": "Det koster 150 kr., som bliver trukket over lønnen." },
-        { "tekst": "Du må gerne tage din partner med.", "forkert": true, "forklaring": "Mailen siger det modsatte: Partnere er **ikke** inviteret i år." }
+        {
+          "tekst": "Julefrokosten er fredag d. 13. december kl. 18 i kantinen."
+        },
+        {
+          "tekst": "Tilmeldingen skal ske senest 22. november.",
+          "forkert": true,
+          "forklaring": "I mailen står der **29. november**."
+        },
+        {
+          "tekst": "Det koster 150 kr., som bliver trukket over lønnen."
+        },
+        {
+          "tekst": "Du må gerne tage din partner med.",
+          "forkert": true,
+          "forklaring": "Mailen siger det modsatte: Partnere er **ikke** inviteret i år."
+        }
       ],
       "faerdig": "Godt fanget! Tjek altid datoer, beløb og navne mod kilden."
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Hvilke dele af et svar fra Copilot skal du især tjekke?",
       "svar": [
         "Stavefejl",
@@ -62,14 +73,14 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
+      "titel": "Et tjek på 2 minutter",
       "tekst": "En fejl, der er sendt videre, tager tid at rette. Et hurtigt tjek tager næsten ingen tid.",
       "foerTekst": "At rette en fejl bagefter tager ca.",
       "normaltEtiket": "Rette bagefter",
       "medEtiket": "Hurtigt tjek",
       "normalt": 20,
       "medCopilot": 2,
-      "gangePrMaaned": 2,
+      "gangePrMaaned": 1,
       "hvad": "at fange en fejl"
     }
   ]

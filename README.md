@@ -98,21 +98,30 @@ Den faste skabelon er:
 | 6 | `tid`       | Tid sparet |
 
 Alle trin kan have en `titel` og en kort `tekst` (maks. 2–3 sætninger).
+Giv trinnene konkrete titler, der siger, hvad man gør (fx "Bed Copilot om et
+referat") – den lille etiket over titlen siger allerede "Prøv det" osv.
 I al tekst kan du skrive `**fed**`. I Copilot-svar bliver linjer, der starter
 med `- `, til punkter.
 
 ### 3. Tilføj forløbet til forsiden
 
-Åbn `forloeb/oversigt.json` og tilføj filnavnet (uden `.json`):
+Åbn `forloeb/oversigt.json` og tilføj filnavnet (uden `.json`) i den gruppe,
+det skal stå i. Rækkefølgen her er også rækkefølgen på forsiden, og den
+bestemmer, hvilket forløb der bliver foreslået som "Næste forløb":
 
 ```json
 {
-  "forloeb": [
-    "teams-referat",
-    "excel-overblik"
+  "grupper": [
+    {
+      "titel": "Dokumenter og tal",
+      "forloeb": ["langt-dokument", "excel-overblik"]
+    }
   ]
 }
 ```
+
+Du kan lave nye grupper eller flytte forløb mellem dem. Det første forløb får
+mærket "Start her", indtil man har klaret ét forløb.
 
 Gem, og genindlæs siden. Færdig.
 
@@ -242,6 +251,7 @@ på dem, der er forkerte.
 }
 ```
 `rigtigt` tæller fra 0 – så `1` betyder det andet svar.
+Uden `titel` bliver selve spørgsmålet overskriften (anbefalet).
 
 ### `goer-det`
 ```json
@@ -257,6 +267,8 @@ på dem, der er forkerte.
 { "type": "tid", "normalt": 20, "medCopilot": 5, "gangePrMaaned": 4 }
 ```
 Besparelsen (her (20 − 5) × 4 = 60 min) lægges til brugerens samlede tal på forsiden.
+Den vises også på forløbets startskærm ("Kan spare dig …"), og under tallene
+står, at det er et skøn. Sæt hellere tallene for lavt end for højt.
 Valgfrit: `foerTekst` (i stedet for "Det tager normalt"), `normaltEtiket` og
 `medEtiket` (i stedet for "Normalt" og "Med Copilot").
 
@@ -277,8 +289,11 @@ selv skal gøre det. Vis derfor præcis den vej, øvelsen lærer dem – og inte
 4. Læg filen i mappen `media/` med **præcis** det filnavn, der står i
    forløbets `"fil"` – fx `media/teams-referat.mp4`.
 
-Indtil filen findes, viser siden en stiplet pladsholder med filnavnet og en
-beskrivelse af, hvad optagelsen skal vise.
+Indtil filen findes, springer siden trinnet "Se det" over, så kollegerne ikke
+ser noget, der ser ufærdigt ud. Vil du selv se, hvilke optagelser der mangler,
+så tilføj `?rediger` til adressen, fx `…/andenpilot/?rediger#teams-referat`.
+Så vises en stiplet pladsholder med filnavnet og en beskrivelse af, hvad
+optagelsen skal vise.
 
 ## Nulstil eget fremskridt
 

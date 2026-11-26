@@ -179,6 +179,19 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .raekke-pil { color: var(--daempet); font-size: 20px; transition: transform .2s, color .2s; }
 
 .forfra { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; }
+.forloeb-gruppe { margin-top: 28px; }
+.gruppe-titel {
+  font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--daempet); padding-bottom: 8px;
+}
+.forloeb-gruppe .forloeb-liste { margin-top: 0; }
+.start-her {
+  display: inline-block; margin-left: 8px; vertical-align: 2px;
+  padding: 1px 9px; border-radius: 99px; background: var(--ai-blid); color: var(--ai);
+  font-size: 12px; font-weight: 700; letter-spacing: .02em;
+}
+.skoen { font-size: 14px; }
+
 .forside-info {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   margin-top: 28px; padding: 18px 20px; border-radius: var(--r);
@@ -285,6 +298,12 @@ h1.scene-titel { font-size: clamp(32px, 8vw, 44px); line-height: 1.1; margin-top
 .scene > :last-child { margin-top: 10px; }
 
 .intro-meta { display: inline-flex; align-items: center; gap: 8px; color: var(--daempet); }
+.intro { display: grid; gap: 22px; }
+.intro-loefte { display: flex; align-items: center; gap: 10px; font-size: 18px; }
+.intro-loefte .ikon { color: var(--ai); }
+.intro-loefte strong { color: var(--accent); }
+.intro-plan { display: grid; gap: 12px; padding-top: 20px; border-top: 1px solid var(--linje); }
+.intro-plan-titel { font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--daempet); }
 
 .forloeb-bund {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
@@ -822,6 +841,17 @@ h1.scene-titel { font-size: clamp(32px, 8vw, 44px); line-height: 1.1; margin-top
 .bjaelke-fyld.ai { background: var(--accent); }
 .bjaelke-tal { font-weight: 600; text-align: right; }
 .tid-tekst { font-size: 18px; }
+.tid-skoen { font-size: 14px; color: var(--daempet); margin-top: -10px; }
+.tid-naeste {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 18px; border-radius: var(--r);
+  background: var(--ai-blid); color: var(--blaek); text-decoration: none;
+}
+.tid-naeste span { display: grid; gap: 2px; }
+.tid-naeste small { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ai); }
+.tid-naeste .ikon { color: var(--ai); font-size: 20px; transition: transform .2s; }
+.tid-naeste:hover .ikon { transform: translateX(3px); }
+.tid-alle { display: flex; gap: 10px; align-items: baseline; color: var(--godt); }
 .tid-samlet {
   display: flex; gap: 10px; align-items: flex-start;
   padding-top: 18px; border-top: 1px solid var(--linje);

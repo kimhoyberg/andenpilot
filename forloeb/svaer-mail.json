@@ -9,14 +9,14 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se det i Outlook",
       "tekst": "Se, hvordan man får Copilot til at skrive et svar i Outlook.",
       "fil": "media/svaer-mail.mp4",
       "beskrivelse": "Outlook: Åbn en mail, klik på Svar og derefter på Copilot-ikonet. Skriv en kort prompt, og vis udkastet, der kommer frem. Bed til sidst om at gøre det kortere. 15–20 sekunder, uden lyd."
     },
     {
       "type": "byg",
-      "titel": "Byg en god prompt",
+      "titel": "Byg prompten til svaret",
       "tekst": "En fast kunde har fået en forkert faktura og er sur. Byg prompten, der får Copilot til at skrive svaret.",
       "mail": {
         "fra": "Kirsten",
@@ -28,10 +28,22 @@
         ]
       },
       "brikker": [
-        { "type": "Hvad", "tekst": "Skriv et svar til Kirsten, hvor du beklager fejlen og fortæller, at hun får en rettet faktura på 3.600 kr. i morgen." },
-        { "type": "Hvem", "tekst": "Hun er en fast kunde og er med rette irriteret." },
-        { "type": "Tone", "tekst": "Brug en rolig og venlig tone, og undskyld kun én gang." },
-        { "type": "Format", "tekst": "Hold svaret under seks linjer." }
+        {
+          "type": "Hvad",
+          "tekst": "Skriv et svar til Kirsten, hvor du beklager fejlen og fortæller, at hun får en rettet faktura på 3.600 kr. i morgen."
+        },
+        {
+          "type": "Hvem",
+          "tekst": "Hun er en fast kunde og er med rette irriteret."
+        },
+        {
+          "type": "Tone",
+          "tekst": "Brug en rolig og venlig tone, og undskyld kun én gang."
+        },
+        {
+          "type": "Format",
+          "tekst": "Hold svaret under seks linjer."
+        }
       ],
       "svar": "Kære Kirsten\n\nTak for din mail, og undskyld fejlen. Du har helt ret: Det aftalte beløb er 3.600 kr.\n\nDu får en rettet faktura i morgen, og du kan se bort fra den forkerte.\n\nVenlig hilsen",
       "faerdig": "Flot! Hvad, hvem, tone og format giver et svar, du næsten kan sende med det samme."
@@ -47,7 +59,6 @@
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Hvad skal du altid gøre, før du sender en mail, som Copilot har skrevet?",
       "svar": [
         "Ingenting – Copilot har styr på det",
@@ -71,10 +82,10 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
+      "titel": "Et svar på 8 minutter",
       "normalt": 20,
-      "medCopilot": 5,
-      "gangePrMaaned": 6,
+      "medCopilot": 8,
+      "gangePrMaaned": 4,
       "hvad": "at skrive en svær mail"
     }
   ]

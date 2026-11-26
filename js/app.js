@@ -5,7 +5,7 @@
 
 import { h, ikon, formaterTid } from './dom.js';
 import { erFaerdig, minutterFor, samletMinutter, lagringVirker, nulstil } from './lager.js';
-import { visForloeb } from './forloeb.js';
+import { visForloeb, forberedForloeb } from './forloeb.js';
 import { infoSide } from './info.js';
 
 const INFO_ID = 'premium';
@@ -25,9 +25,19 @@ async function hentJson(sti) {
 const hentOversigt = () => hentJson('forloeb/oversigt.json');
 const hentForloeb = (id) => hentJson(`forloeb/${encodeURIComponent(id)}.json`);
 
+const gyldig = (id) => typeof id === 'string' && /^[\w-]+$/.test(id);
+
+// oversigt.json kan have "grupper" (med overskrifter) eller blot en flad "forloeb"-liste
+async function hentGrupper() {
+  const o = await hentOversigt();
+  const grupper = Array.isArray(o.grupper)
+    ? o.grupper.map((g) => ({ titel: g.titel || '', ids: (g.forloeb || []).filter(gyldig) }))
+    : [{ titel: '', ids: (o.forloeb || []).filter(gyldig) }];
+  return grupper.filter((g) => g.ids.length);
+}
+
 async function alleForloeb() {
-  const oversigt = await hentOversigt();
-  const ids = (oversigt.forloeb || []).filter((id) => /^[\w-]+$/.test(id));
+  const ids = (await hentGrupper()).flatMap((g) => g.ids);
   const resultater = await Promise.allSettled(ids.map(hentForloeb));
   return resultater.map((r, i) => (r.status === 'fulfilled' ? { ...r.value, id: ids[i] } : null)).filter(Boolean);
 }
@@ -67,25 +77,36 @@ async function visInfo() {
 
 async function visForside() {
   document.title = 'Copilot på 5 minutter';
-  const [liste, info] = await Promise.all([alleForloeb(), hentInfo()]);
+  const [liste, info, grupper] = await Promise.all([alleForloeb(), hentInfo(), hentGrupper()]);
   const ids = liste.map((f) => f.id);
   const antalKlaret = ids.filter(erFaerdig).length;
   const minutter = samletMinutter(ids);
+  const efterId = new Map(liste.map((f) => [f.id, f]));
 
-  const raekker = liste.map((f) => {
+  const raekke = (f, startHer) => {
     const klaret = erFaerdig(f.id);
     return h('li', {},
       h('a', { class: 'forloeb-raekke' + (klaret ? ' klaret' : ''), href: `#${f.id}` },
         h('span', { class: 'flueben-cirkel', 'aria-hidden': 'true' }, klaret ? ikon('flueben') : null),
         h('span', { class: 'raekke-tekst' },
-          h('span', { class: 'raekke-titel' }, f.titel),
+          h('span', { class: 'raekke-titel' }, f.titel,
+            startHer ? h('span', { class: 'start-her' }, 'Start her') : null),
           h('span', { class: 'raekke-meta' },
             klaret
               ? `Klaret · sparer ${formaterTid(minutterFor(f.id))} om måneden`
               : `ca. ${f.varighed || 5} min${f.program ? ' · ' + f.program : ''}`)),
         h('span', { class: 'sr' }, klaret ? '(klaret)' : ''),
         ikon('pil', 'ikon raekke-pil')));
-  });
+  };
+
+  const foersteId = ids[0];
+  const lister = grupper.map((g) => {
+    const fl = g.ids.map((id) => efterId.get(id)).filter(Boolean);
+    if (!fl.length) return null;
+    return h('section', { class: 'forloeb-gruppe' },
+      g.titel ? h('h2', { class: 'gruppe-titel' }, g.titel) : null,
+      h('ul', { class: 'forloeb-liste' }, fl.map((f) => raekke(f, antalKlaret === 0 && f.id === foersteId))));
+  }).filter(Boolean);
 
   const pct = ids.length ? Math.round((antalKlaret / ids.length) * 100) : 0;
 
@@ -103,10 +124,11 @@ async function visForside() {
           h('span', { style: `width:${pct}%` }))),
       h('p', { class: 'status-tid' },
         minutter > 0
-          ? ['Du har lært at spare ', h('strong', {}, formaterTid(minutter)), ' om måneden.']
+          ? ['Du har lært at spare ', h('strong', {}, formaterTid(minutter)), ' om måneden. ',
+            h('span', { class: 'skoen' }, '(skøn)')]
           : 'Gennemfør et forløb, og se hvor meget tid du kan spare.')),
 
-    h('ul', { class: 'forloeb-liste' }, raekker),
+    ...lister,
 
     info ? h('a', { class: 'forside-info', href: `#${INFO_ID}` },
       h('span', {}, 'Hvad er forskellen på Copilot Chat og Copilot med licens?'),
@@ -139,10 +161,17 @@ async function rute() {
       await visInfo();
       window.scrollTo({ top: 0 });
     } else if (m) {
-      const forloeb = { ...(await hentForloeb(m[1])), id: m[1] };
-      let ids = [];
-      try { ids = (await hentOversigt()).forloeb || []; } catch { ids = [m[1]]; }
-      visForloeb(rod, forloeb, { samletMinutter: () => samletMinutter(ids) });
+      const forloeb = await forberedForloeb({ ...(await hentForloeb(m[1])), id: m[1] });
+      let liste = [];
+      try { liste = await alleForloeb(); } catch { liste = [forloeb]; }
+      const ids = liste.map((f) => f.id);
+      // Det næste forløb, man ikke har klaret – i rækkefølgen fra oversigten, efter dette
+      const naesteForloeb = () => {
+        const i = ids.indexOf(forloeb.id);
+        const raekkefoelge = [...liste.slice(i + 1), ...liste.slice(0, Math.max(0, i))];
+        return raekkefoelge.find((f) => !erFaerdig(f.id)) || null;
+      };
+      visForloeb(rod, forloeb, { samletMinutter: () => samletMinutter(ids), naesteForloeb });
     } else {
       await visForside();
       window.scrollTo({ top: 0 });

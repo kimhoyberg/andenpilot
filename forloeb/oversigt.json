@@ -1,13 +1,16 @@
 {
-  "forloeb": [
-    "teams-referat",
-    "hvad-har-jeg-misset",
-    "svaer-mail",
-    "forbered-moede",
-    "find-i-filer",
-    "langt-dokument",
-    "dokument-til-praesentation",
-    "spoerg-regnearket",
-    "naar-copilot-tager-fejl"
+  "grupper": [
+    {
+      "titel": "Møder og mails",
+      "forloeb": ["teams-referat", "hvad-har-jeg-misset", "svaer-mail", "forbered-moede"]
+    },
+    {
+      "titel": "Dokumenter og tal",
+      "forloeb": ["find-i-filer", "langt-dokument", "dokument-til-praesentation", "spoerg-regnearket"]
+    },
+    {
+      "titel": "Brug Copilot klogt",
+      "forloeb": ["naar-copilot-tager-fejl"]
+    }
   ]
 }

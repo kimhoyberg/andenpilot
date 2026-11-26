@@ -40,6 +40,18 @@ export function tid(trin, ctx) {
     h('p', { class: 'tid-tekst' },
       `Gør du det ${gange === 1 ? 'én gang' : gange + ' gange'} om måneden, sparer du `,
       h('strong', {}, formaterTid(prMaaned)), ' om måneden.'),
+    h('p', { class: 'tid-skoen' }, 'Tallene er et skøn. Din egen besparelse afhænger af, hvor tit du gør det.'),
     h('p', { class: 'tid-samlet' }, ikon('ur'),
-      h('span', {}, 'I alt har du nu lært at spare ', h('strong', {}, formaterTid(samlet)), ' om måneden.')));
+      h('span', {}, 'I alt har du nu lært at spare ', h('strong', {}, formaterTid(samlet)), ' om måneden.')),
+    naesteBlok(ctx));
+}
+
+function naesteBlok(ctx) {
+  const n = ctx.naesteForloeb ? ctx.naesteForloeb() : null;
+  if (!n) {
+    return h('p', { class: 'tid-alle' }, ikon('flueben'), h('span', {}, h('strong', {}, 'Du har klaret alle forløb.'), ' Flot klaret!'));
+  }
+  return h('a', { class: 'tid-naeste', href: `#${n.id}` },
+    h('span', {}, h('small', {}, 'Næste forløb'), h('strong', {}, n.titel)),
+    ikon('pil'));
 }

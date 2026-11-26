@@ -9,28 +9,70 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se det i Excel",
       "tekst": "Se, hvordan man spørger Copilot om tallene i Excel.",
       "fil": "media/spoerg-regnearket.mp4",
       "beskrivelse": "Excel: Åbn et regneark med en tabel, klik på Copilot, og skriv et spørgsmål om tallene. Vis svaret, fx et diagram eller en ny kolonne. 15 sekunder, uden lyd."
     },
     {
       "type": "simulator",
-      "titel": "Prøv selv",
+      "titel": "Spørg om kontorets udgifter",
       "tekst": "Du har kontorets udgifter for første halvår. Find ud af, hvor pengene går hen.",
       "app": "excel",
       "opgave": "Find Copilot-knappen i Excel, og klik på den.",
       "vindue": {
         "titel": "Udgifter kontor.xlsx",
         "tabel": {
-          "kolonner": ["Måned", "Kontorartikler", "Kaffe og frugt", "Rengøring", "I alt"],
+          "kolonner": [
+            "Måned",
+            "Kontorartikler",
+            "Kaffe og frugt",
+            "Rengøring",
+            "I alt"
+          ],
           "raekker": [
-            ["Januar", "3.200", "1.800", "9.500", "14.500"],
-            ["Februar", "2.100", "1.900", "9.500", "13.500"],
-            ["Marts", "5.400", "2.000", "9.500", "16.900"],
-            ["April", "1.900", "2.200", "9.880", "13.980"],
-            ["Maj", "2.300", "2.100", "9.880", "14.280"],
-            ["Juni", "2.000", "2.600", "9.880", "14.480"]
+            [
+              "Januar",
+              "3.200",
+              "1.800",
+              "9.500",
+              "14.500"
+            ],
+            [
+              "Februar",
+              "2.100",
+              "1.900",
+              "9.500",
+              "13.500"
+            ],
+            [
+              "Marts",
+              "5.400",
+              "2.000",
+              "9.500",
+              "16.900"
+            ],
+            [
+              "April",
+              "1.900",
+              "2.200",
+              "9.880",
+              "13.980"
+            ],
+            [
+              "Maj",
+              "2.300",
+              "2.100",
+              "9.880",
+              "14.280"
+            ],
+            [
+              "Juni",
+              "2.000",
+              "2.600",
+              "9.880",
+              "14.480"
+            ]
           ]
         }
       },
@@ -67,7 +109,6 @@
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Hvad får Copilot i Excel til at virke bedst?",
       "svar": [
         "At tallene står i en tabel med tydelige overskrifter",
@@ -90,10 +131,10 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
+      "titel": "Svar på 10 minutter",
       "normalt": 20,
-      "medCopilot": 5,
-      "gangePrMaaned": 3,
+      "medCopilot": 10,
+      "gangePrMaaned": 2,
       "hvad": "at finde svar i et regneark"
     }
   ]

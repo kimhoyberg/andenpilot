@@ -9,14 +9,14 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se det i Copilot Chat",
       "tekst": "Se, hvordan man spørger Copilot om en sag fra arbejdet.",
       "fil": "media/find-i-filer.mp4",
       "beskrivelse": "Copilot i Teams eller på microsoft365.com: Vælg Arbejde øverst, skriv et spørgsmål om en sag, og vis svaret med henvisninger til mails og filer. Klik på en af henvisningerne. 15 sekunder, uden lyd."
     },
     {
       "type": "simulator",
-      "titel": "Prøv selv",
+      "titel": "Spørg om aftalen med rengøringsfirmaet",
       "tekst": "Om lidt skal du ringe til rengøringsfirmaet, men du kan ikke huske, hvad I aftalte sidst. Spørg Copilot.",
       "app": "chat",
       "arbejde": true,
@@ -25,9 +25,18 @@
         "titel": "Microsoft 365",
         "hilsen": "Godmorgen",
         "kalender": [
-          { "tid": "09:00", "titel": "Ugemøde i teamet" },
-          { "tid": "11:30", "titel": "Frokost med nye kolleger" },
-          { "tid": "14:00", "titel": "Opkald: rengøringsfirmaet" }
+          {
+            "tid": "09:00",
+            "titel": "Ugemøde i teamet"
+          },
+          {
+            "tid": "11:30",
+            "titel": "Frokost med nye kolleger"
+          },
+          {
+            "tid": "14:00",
+            "titel": "Opkald: rengøringsfirmaet"
+          }
         ],
         "filer": [
           "Kontrakt rengøring.pdf",
@@ -39,24 +48,32 @@
         {
           "tekst": "Hvad aftalte vi med rengøringsfirmaet sidst?",
           "svar": "På mødet den 3. februar aftalte I:\n- Rengøringen flyttes fra kl. 7 til kl. 16, så den ikke forstyrrer om morgenen.\n- Mødelokalerne gøres rent hver dag i stedet for to gange om ugen.\n- Prisen stiger 4 % fra 1. april.\n- Rengøringsfirmaet sender en ny plan. Den er ikke kommet endnu.",
-          "kilder": ["Referat – møde med rengøringsfirmaet.docx", "Mail fra Mette: Ny rengøringsplan"]
+          "kilder": [
+            "Referat – møde med rengøringsfirmaet.docx",
+            "Mail fra Mette: Ny rengøringsplan"
+          ]
         },
         {
           "tekst": "Hvad står der i kontrakten om opsigelse?",
           "svar": "Kontrakten kan opsiges med **3 måneders varsel** til udgangen af en måned. Opsigelsen skal være skriftlig.",
-          "kilder": ["Kontrakt rengøring.pdf"]
+          "kilder": [
+            "Kontrakt rengøring.pdf"
+          ]
         },
         {
           "tekst": "Hvad skal jeg huske til opkaldet kl. 14?",
           "svar": "Til opkaldet kl. 14 kan du:\n- Spørge efter den nye rengøringsplan, som de lovede efter mødet 3. februar.\n- Bekræfte, at mødelokalerne nu gøres rent hver dag.\n- Spørge, om prisstigningen på 4 % gælder fra 1. april som aftalt.",
-          "kilder": ["Referat – møde med rengøringsfirmaet.docx", "Kalender: Opkald: rengøringsfirmaet"]
+          "kilder": [
+            "Referat – møde med rengøringsfirmaet.docx",
+            "Kalender: Opkald: rengøringsfirmaet"
+          ]
         }
       ],
       "faerdig": "Flot! Læg mærke til kilderne under svaret – dem kan du klikke på i det rigtige program."
     },
     {
       "type": "valg",
-      "titel": "Hvilket spørgsmål giver det bedste svar?",
+      "titel": "Hvilket spørgsmål finder aftalen?",
       "tekst": "Vælg det, du tror virker bedst. Så ser du begge svar.",
       "a": {
         "prompt": "rengøring",
@@ -71,7 +88,6 @@
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Hvad skal være valgt øverst i Copilot, for at den leder i dine egne mails og filer?",
       "svar": [
         "Web",
@@ -95,10 +111,10 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
-      "normalt": 20,
-      "medCopilot": 3,
-      "gangePrMaaned": 6,
+      "titel": "Svaret på 5 minutter",
+      "normalt": 15,
+      "medCopilot": 5,
+      "gangePrMaaned": 4,
       "hvad": "at lede efter en aftale i mails og filer"
     }
   ]

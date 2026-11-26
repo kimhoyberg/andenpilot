@@ -9,14 +9,14 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se det i Copilot Chat",
       "tekst": "Se, hvordan man beder Copilot om at gøre en klar til et møde.",
       "fil": "media/forbered-moede.mp4",
       "beskrivelse": "Copilot i Teams eller på microsoft365.com med Arbejde valgt: Skriv »Forbered mig til mit møde …«, og vis svaret med baggrund, beslutninger og åbne punkter fra mails og filer. 15 sekunder, uden lyd."
     },
     {
       "type": "byg",
-      "titel": "Byg en god prompt",
+      "titel": "Byg prompten, der gør dig klar",
       "tekst": "Om en time skal du til møde om det nye intranet, og du har ikke fulgt med. Byg prompten, der gør dig klar.",
       "mail": {
         "fra": "Mødeindkaldelse fra Jonas",
@@ -28,17 +28,28 @@
         ]
       },
       "brikker": [
-        { "type": "Hvad", "tekst": "Forbered mig til mødet »Status på nyt intranet« i dag kl. 13." },
-        { "type": "Hvem", "tekst": "Jeg har ikke fulgt med og skal bare kunne være med i snakken." },
-        { "type": "Format", "tekst": "Giv mig baggrunden, hvad der er besluttet, og hvad der er åbent – i punktform." },
-        { "type": "Tone", "tekst": "Skriv det kort og uden fagudtryk." }
+        {
+          "type": "Hvad",
+          "tekst": "Forbered mig til mødet »Status på nyt intranet« i dag kl. 13."
+        },
+        {
+          "type": "Hvem",
+          "tekst": "Jeg har ikke fulgt med og skal bare kunne være med i snakken."
+        },
+        {
+          "type": "Format",
+          "tekst": "Giv mig baggrunden, hvad der er besluttet, og hvad der er åbent – i punktform."
+        },
+        {
+          "type": "Tone",
+          "tekst": "Skriv det kort og uden fagudtryk."
+        }
       ],
       "svar": "**Baggrund**\n- Det nye intranet skal erstatte det gamle i maj. Jonas er projektleder.\n\n**Besluttet indtil nu**\n- Forsiden får nyheder øverst og en fast boks med telefonliste og kantinemenu.\n- Hver afdeling får sin egen side.\n\n**Åbent**\n- Hvem der skal skrive nyhederne. Det blev ikke afklaret sidst.\n- Jonas vil gerne have kommentarer til udkastet til forsiden på mødet.",
       "faerdig": "Flot! Nu kan du være med i snakken – på to minutters læsning."
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Copilot finder intet om et af punkterne på dagsordenen. Hvad kan det betyde?",
       "svar": [
         "At punktet ikke er vigtigt",
@@ -61,10 +72,10 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
-      "normalt": 15,
+      "titel": "Klar på 3 minutter",
+      "normalt": 10,
       "medCopilot": 3,
-      "gangePrMaaned": 6,
+      "gangePrMaaned": 4,
       "hvad": "at forberede dig til et møde"
     }
   ]

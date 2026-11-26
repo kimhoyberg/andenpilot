@@ -9,27 +9,57 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se det i Teams",
       "tekst": "Se, hvordan man beder Copilot om et referat i et Teams-møde.",
       "fil": "media/teams-referat.mp4",
       "beskrivelse": "Et Teams-møde med transskription slået til. Klik på Copilot øverst i mødet, vælg en prompt om at opsummere mødet, og vis svaret. 10–15 sekunder, uden lyd."
     },
     {
       "type": "simulator",
-      "titel": "Prøv selv",
+      "titel": "Bed Copilot om et referat",
       "tekst": "Du er med i ugemødet i Kundeservice. Bed Copilot om et referat.",
       "app": "teams",
       "opgave": "Find Copilot-knappen i mødet, og klik på den.",
       "vindue": {
         "titel": "Ugemøde – Kundeservice",
-        "deltagere": ["Mette", "Jonas", "Aisha", "Peter", "Dig"],
+        "deltagere": [
+          "Mette",
+          "Jonas",
+          "Aisha",
+          "Peter",
+          "Dig"
+        ],
         "udskrift": [
-          { "navn": "Mette", "tid": "10:02", "tekst": "Så tager vi telefontiden. Fra 1. februar foreslår jeg, at vi lukker telefonen kl. 15 i stedet for kl. 16." },
-          { "navn": "Jonas", "tid": "10:04", "tekst": "Det er fint med mig. Så skal hjemmesiden opdateres – det tager jeg mig af." },
-          { "navn": "Aisha", "tid": "10:06", "tekst": "Vi skal også skrive til de faste kunder. Jeg laver et udkast til en mail inden fredag." },
-          { "navn": "Mette", "tid": "10:09", "tekst": "Godt. Hvad med vagtplanen?" },
-          { "navn": "Peter", "tid": "10:11", "tekst": "Jeg er ikke sikker på, at vi kan dække fredag eftermiddag. Det må vi kigge på igen." },
-          { "navn": "Mette", "tid": "10:14", "tekst": "Okay, det tager vi på næste møde. Jeg sender en kort status til ledelsen." }
+          {
+            "navn": "Mette",
+            "tid": "10:02",
+            "tekst": "Så tager vi telefontiden. Fra 1. februar foreslår jeg, at vi lukker telefonen kl. 15 i stedet for kl. 16."
+          },
+          {
+            "navn": "Jonas",
+            "tid": "10:04",
+            "tekst": "Det er fint med mig. Så skal hjemmesiden opdateres – det tager jeg mig af."
+          },
+          {
+            "navn": "Aisha",
+            "tid": "10:06",
+            "tekst": "Vi skal også skrive til de faste kunder. Jeg laver et udkast til en mail inden fredag."
+          },
+          {
+            "navn": "Mette",
+            "tid": "10:09",
+            "tekst": "Godt. Hvad med vagtplanen?"
+          },
+          {
+            "navn": "Peter",
+            "tid": "10:11",
+            "tekst": "Jeg er ikke sikker på, at vi kan dække fredag eftermiddag. Det må vi kigge på igen."
+          },
+          {
+            "navn": "Mette",
+            "tid": "10:14",
+            "tekst": "Okay, det tager vi på næste møde. Jeg sender en kort status til ledelsen."
+          }
         ]
       },
       "prompts": [
@@ -65,7 +95,6 @@
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Hvad skal være slået til i mødet, for at Copilot kan lave et referat bagefter?",
       "svar": [
         "Kameraet",
@@ -88,9 +117,9 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
+      "titel": "Et referat på 8 minutter",
       "normalt": 20,
-      "medCopilot": 5,
+      "medCopilot": 8,
       "gangePrMaaned": 4,
       "hvad": "at skrive et referat"
     }

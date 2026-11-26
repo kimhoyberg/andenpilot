@@ -9,14 +9,14 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se det i PowerPoint",
       "tekst": "Se, hvordan man laver en præsentation ud fra en fil i PowerPoint.",
       "fil": "media/dokument-til-praesentation.mp4",
       "beskrivelse": "PowerPoint: Lav en ny præsentation, klik på Copilot, og vælg at oprette en præsentation ud fra en fil. Vælg et Word-dokument, og vis de slides, der bliver lavet. 15–20 sekunder, uden lyd."
     },
     {
       "type": "simulator",
-      "titel": "Prøv selv",
+      "titel": "Lav slides ud fra dokumentet",
       "tekst": "Du skal fremlægge de nye regler for hjemmearbejde på personalemødet. Lav slides ud fra dokumentet.",
       "app": "powerpoint",
       "opgave": "Find Copilot-knappen i PowerPoint, og klik på den.",
@@ -28,19 +28,59 @@
           "tekst": "Lav en præsentation ud fra Retningslinjer for hjemmearbejde.docx",
           "svar": "Jeg har lavet 4 slides ud fra dokumentet. Du kan rette tekst og design bagefter.",
           "slides": [
-            { "titel": "Nye regler for hjemmearbejde", "punkter": ["Gælder fra 1. marts"] },
-            { "titel": "Hvor meget?", "punkter": ["Op til 2 dage om ugen", "Tirsdag er fast mødedag"] },
-            { "titel": "Det skal du huske", "punkter": ["Kan kontaktes kl. 9–15", "Ingen fortrolige papirer derhjemme"] },
-            { "titel": "Sådan kommer du i gang", "punkter": ["Udfyld aftalen på intranettet", "Søg om udstyr senest 1. februar"] }
+            {
+              "titel": "Nye regler for hjemmearbejde",
+              "punkter": [
+                "Gælder fra 1. marts"
+              ]
+            },
+            {
+              "titel": "Hvor meget?",
+              "punkter": [
+                "Op til 2 dage om ugen",
+                "Tirsdag er fast mødedag"
+              ]
+            },
+            {
+              "titel": "Det skal du huske",
+              "punkter": [
+                "Kan kontaktes kl. 9–15",
+                "Ingen fortrolige papirer derhjemme"
+              ]
+            },
+            {
+              "titel": "Sådan kommer du i gang",
+              "punkter": [
+                "Udfyld aftalen på intranettet",
+                "Søg om udstyr senest 1. februar"
+              ]
+            }
           ]
         },
         {
           "tekst": "Lav 3 slides med de vigtigste regler",
           "svar": "Her er 3 slides med de vigtigste regler.",
           "slides": [
-            { "titel": "Op til 2 hjemmedage om ugen", "punkter": ["Tirsdag er fast mødedag", "Aftal dagene i teamet"] },
-            { "titel": "Du skal kunne kontaktes", "punkter": ["Kl. 9–15 via Teams og telefon"] },
-            { "titel": "Pas på data", "punkter": ["Ingen fortrolige papirer derhjemme", "Lås skærmen"] }
+            {
+              "titel": "Op til 2 hjemmedage om ugen",
+              "punkter": [
+                "Tirsdag er fast mødedag",
+                "Aftal dagene i teamet"
+              ]
+            },
+            {
+              "titel": "Du skal kunne kontaktes",
+              "punkter": [
+                "Kl. 9–15 via Teams og telefon"
+              ]
+            },
+            {
+              "titel": "Pas på data",
+              "punkter": [
+                "Ingen fortrolige papirer derhjemme",
+                "Lås skærmen"
+              ]
+            }
           ]
         }
       ],
@@ -57,7 +97,6 @@
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Copilot har lavet dine slides. Hvad gør du så?",
       "svar": [
         "Præsenterer dem, som de er",
@@ -80,9 +119,9 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
+      "titel": "Et udkast på 30 minutter",
       "normalt": 60,
-      "medCopilot": 20,
+      "medCopilot": 30,
       "gangePrMaaned": 1,
       "hvad": "at lave en præsentation"
     }

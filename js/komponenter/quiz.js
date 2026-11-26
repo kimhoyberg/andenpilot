@@ -29,7 +29,7 @@ export function quiz(trin, ctx) {
   }
 
   return h('div', { class: 'quiz' },
-    h('p', { class: 'quiz-spoergsmaal' }, trin.spoergsmaal || ''),
+    trin.titel ? h('p', { class: 'quiz-spoergsmaal' }, trin.spoergsmaal || '') : null,
     h('div', { class: 'quiz-liste' }, knapper),
     feedback, forklaring);
 }

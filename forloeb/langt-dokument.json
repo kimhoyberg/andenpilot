@@ -9,14 +9,14 @@
     },
     {
       "type": "video",
-      "titel": "Sådan ser det ud",
+      "titel": "Se det i Word",
       "tekst": "Se, hvordan man får en opsummering af et dokument i Word.",
       "fil": "media/langt-dokument.mp4",
       "beskrivelse": "Word: Åbn et langt dokument, klik på Copilot på fanen Hjem, og bed om en opsummering. Vis svaret, og klik på en af henvisningerne, så Word hopper til det rigtige sted. 15–20 sekunder, uden lyd."
     },
     {
       "type": "simulator",
-      "titel": "Prøv selv",
+      "titel": "Få overblik over retningslinjerne",
       "tekst": "Du har fået nye retningslinjer for hjemmearbejde. Bed Copilot om overblikket.",
       "app": "word",
       "opgave": "Find Copilot-knappen i Word, og klik på den.",
@@ -68,7 +68,6 @@
     },
     {
       "type": "quiz",
-      "titel": "Et hurtigt spørgsmål",
       "spoergsmaal": "Copilot skriver, at fristen for at låne udstyr er 1. februar. Hvordan kan du være sikker?",
       "svar": [
         "Copilot tager aldrig fejl",
@@ -92,10 +91,10 @@
     },
     {
       "type": "tid",
-      "titel": "Så meget tid sparer du",
+      "titel": "Overblik på 15 minutter",
       "normalt": 30,
-      "medCopilot": 10,
-      "gangePrMaaned": 3,
+      "medCopilot": 15,
+      "gangePrMaaned": 2,
       "hvad": "at læse et langt dokument"
     }
   ]
