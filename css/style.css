@@ -287,8 +287,9 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .etiket {
   font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ai);
 }
-.scene-titel { font-size: clamp(25px, 6vw, 32px); line-height: 1.2; letter-spacing: -0.01em; outline: none; }
-h1.scene-titel { font-size: clamp(32px, 8vw, 44px); line-height: 1.1; margin-top: 24px; }
+/* Samme størrelse som overskrifterne på fanerne (.forside-titel, .info-overskrift) */
+.scene-titel { font-size: 30px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; text-wrap: balance; outline: none; }
+h1.scene-titel { margin-top: 24px; }
 .scene-tekst { color: var(--daempet); font-size: 18px; }
 .scene[data-type="intro"] .scene-tekst { font-size: 20px; color: var(--blaek); }
 .scene > * { min-width: 0; }
