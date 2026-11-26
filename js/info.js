@@ -19,9 +19,9 @@ export function infoSide(d, forloeb) {
   const raekker = (d.raekker || []).map((r, i) => {
     const f = r.forloeb ? forloeb.get(r.forloeb) : null;
     return h('li', { class: 'info-raekke' },
-      h('span', { class: 'info-nr', 'aria-hidden': 'true' }, String(i + 1).padStart(2, '0')),
       h('div', { class: 'info-indhold' },
-        h('h2', { class: 'info-titel' }, r.titel),
+        h('h2', { class: 'info-titel' },
+          h('span', { class: 'info-nr', 'aria-hidden': 'true' }, String(i + 1).padStart(2, '0')), r.titel),
         h('div', { class: 'info-uden' },
           h('p', { class: 'info-etiket' }, udenMaerke(), uden.navn,
             r.udenMaerke ? h('span', { class: 'info-etiket-tillaeg' }, ` · ${r.udenMaerke}`) : null),
